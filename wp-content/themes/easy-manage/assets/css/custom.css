@@ -1,0 +1,255 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	/* box-sizing: border-box; */
+	
+}
+
+body{
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+footer{
+    margin-top: auto;
+}
+.homepage {
+	background-image: url(../img/wallpaperflare.com_wallpaper.jpg);
+	background-size: 100% 100%;
+	background-position: center;
+	min-height: 50vw;
+	font-family: "Montserrat";
+	background-color: blue;
+
+}
+
+.homepage-heading,
+.homepage-content {
+	margin: 0px auto;
+}
+
+.homepage-heading {
+	width: 100%;
+	padding-top: 1vw;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+    
+}
+
+.heading2 {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 450px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.links {
+	display: flex;
+	justify-content: space-evenly;
+    gap: 50px;
+}
+
+
+.list {
+	margin: 20px;
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	display: inline-block;
+
+}
+
+.brand>li {
+
+	font-weight: 700;
+	font-size: 50px;
+	color: white;
+  
+}
+
+
+.login>button {
+	padding: 20px;
+	color: white;
+	font-weight: 600;
+	font-size: 20px;
+	border-radius: 30px;
+}
+
+
+.login {
+	background: transparent;
+	
+}
+
+.login:hover {
+	background: rgb(35, 164, 237);
+    border: 2px solid white;
+	
+
+}
+
+
+
+.homepage-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 40%;
+	align-items: center;
+	text-align: center;
+	color: white;
+	padding-top: 200px;
+}
+
+.homepage-content>h1 {
+	font-size: 70px;
+	
+}
+
+.button {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	padding-top: 70px;
+}
+
+.button>button {
+	padding: 20px;
+	color: white;
+	font-weight: 600;
+	font-size: 20px;
+	border-radius: 30px;
+}
+
+
+.start {
+	background: transparent;
+	border: 2px solid white;
+}
+
+.start:hover {
+	background: rgb(35, 164, 237);
+	border: 2px solid white;
+
+}
+
+.third-page {
+	
+	background: rgb(49, 89, 218);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-bottom: 30px;
+
+}
+
+.third-header {
+	margin: 6vh;
+	width: 60vw;
+	padding: 10px;
+	text-align: center;
+}
+
+.third-header>h1 {
+	padding: 10px;
+	font-size: 58px;
+	color: white;
+}
+
+.third-header>p {
+	color: white;
+	font-size: 20px;
+	padding: 0px 80px 0px 100px;
+
+}
+
+
+.cards {
+	display: flex;
+	justify-content: center;
+}
+
+.cards2 {
+	width: 75%;
+	display: flex;
+	justify-content: center;
+	gap: 3vw;
+
+}
+
+
+
+.cards-data {
+	height: 31vw;
+	background: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border: 2px solid rgb(39, 39, 39, 0.2);
+	border-radius: 14px;
+
+}
+
+.cards-data>img {
+	height: 12vw;
+	width: 12vw;
+}
+
+.cards-data>p {
+	color: rgb(39, 39, 39, 0.7);
+	text-align: center;
+	font-size: 23px;
+	margin: 40px 62px;
+}
+
+h3{
+	padding-top: 20px;
+}
+
+.fourth-header {
+	margin: 6vh;
+	width: 60vw;
+	padding: 10px;
+	text-align: center;
+
+}
+
+.fourth-header>h1 {
+	padding: 10px;
+	font-size: 58px;
+	color: black;
+}
+
+.fourth-header>p {
+	color: black;
+	font-size: 20px;
+	padding-top: 10px;
+	
+
+}
+
+.fourth-page {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+form{
+	border: 2px solid black;
+	padding: 40px;
+}
+
+
+
+
+
+
+
