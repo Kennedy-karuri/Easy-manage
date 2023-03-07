@@ -139,6 +139,25 @@ a {
 
 }
 
+.second-page{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-bottom: 30px;
+	min-height: 30vw;
+	font-family: "Montserrat";
+	
+}
+
+.row{
+		padding-top: 70px;
+}
+
+.card{
+	height: 400px;
+	
+}
+
 .third-page {
 	
 	background: rgb(49, 89, 218);

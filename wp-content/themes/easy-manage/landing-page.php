@@ -47,6 +47,24 @@
     </div>
 </div>
 
+<div class="second-page">
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+     
+        <h1 class="card-title" style="padding-top:30px">ABOUT-US</h1>
+        <p class="card-text" style="padding-top:30px;">Easy-Manage is a management application that helps project managers keep track of all their members and assign projects to their members.</p>
+       
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+  <img src="wp-content/themes/easy-manage/assets/img/wallpaperflare.com_wallpaper.jpg" class="" alt="" style="height: 400px;width: 400px;">
+  </div>
+</div>
+</div>
+
 <div class="third-page">
         <div class="third-header">
             <h1>SERVICES</h1>
@@ -62,10 +80,10 @@
 
                 <div class="cards-data">
                     <img src="wp-content/themes/easy-manage/assets/img/User.png">
-                    <h3>Manage Users</h3>
-                    <p>Manage users of your System.You can view the whole of your workforce from our application</p>
+                    <h3>Managesers of your System.You can view the whole of your workforce from our application</p>
                    
-                </div>
+                </div> Users</h3>
+                    <p>Manage u
 
                 <div class="cards-data">
                     <img src="wp-content/themes/easy-manage/assets/img/puser.png">
