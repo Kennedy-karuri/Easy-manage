@@ -1,0 +1,176 @@
+body {
+    background: #191c2e;
+    font-size: 13px;
+    overflow-x: hidden;
+    direction: ltr;
+    text-align: left;
+}
+* {
+    font-family: 'iransans', sans-serif;
+    font-weight: 300;
+}
+
+.effect {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba( 75, 8, 60, 0.281 );
+}
+
+#main-header {
+    background: #2b2e43;
+    height: auto;
+    max-height: 80px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+#main-header .search {
+    height: 80px;
+    background: #3b3f53;
+    text-align: center;
+    width: 400px;
+    display: flex
+}
+
+#main-header .search input#search {
+    background: #3b3e52;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    height: 100%;
+    width: 100%;
+}
+
+#main-header .icon:before {
+    line-height: 75px;
+    margin: 0 20px 0 30px;
+    font-size: 23px;
+}
+
+#main-header .account figure {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#main-header .account figcaption {
+    color: #fff;
+    margin: auto 10px;
+
+}
+
+#main-header .account .avatar {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #222;
+    margin-top: 10px
+}
+.wrapper .menu-left {
+    padding: 80px 20px;
+}
+
+.wrapper .menu-left .list li {
+    text-align: center;
+    width: 100%;
+    margin: 20px 10px;
+}
+
+.wrapper .menu-left .list li a {
+    display: flex;
+    flex-direction: column;
+    color: #ccc;
+    font-size: 13px;
+}
+
+.wrapper .menu-left .list li a.active .icon:before {
+    color: #38c3d5;
+}
+
+.wrapper .menu-left .list li a.active .text {
+    color: #fff;
+}
+
+.wrapper .menu-left .list li a .icon:before {
+    margin: 0;
+    color: #777;
+    font-size: 28px;
+}
+
+.wrapper .menu-left .list li a .text {
+    margin: 10px 0;
+}
+
+.wrapper .main-content {
+    background: #2b2e43;
+    position: relative;
+    right: -20px;
+}
+
+.wrapper .main-content .header-content {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background: #191c2e;
+}
+
+.wrapper .main-content .header-content .action .btn {
+    line-height: 20px;
+    border-radius: 0;
+    width: 180px;
+    font-weight: 700;
+    background: #4378eb;
+}
+
+.wrapper .main-content .header-content .action a {
+    margin: 0 20px;
+}
+.header-content ul {
+    display: flex;
+}
+
+.wrapper .main-content .header-content .list li a {
+    color: #ccc;
+    margin: 25px 10px 0 10px;
+    display: flex;
+}
+
+.wrapper .main-content .header-content .list li a .state {
+    border: 3px solid #eee;
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+.form-field1{
+    margin: 20px;
+}
+.form-field2{
+    align-content: center;
+    margin: 20px;
+}
+.form-field3{
+    margin: 20px;
+}
+.btns-section{
+    justify-content: center;
+    align-content: center;
+    display: flex;
+}
+.btn-sec2{
+    margin-left: 30px;
+}
+.btn-sec1 button{
+    margin-right: 30px;
+    width: 150px;
+}
+.btn-sec2 button{
+    margin-right: 30px;
+    width: 150px;
+}
