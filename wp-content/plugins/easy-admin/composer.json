@@ -1,0 +1,19 @@
+{
+    "name": "ken/easy-admin",
+    "description": "This is a plugin that helps with management functionalities",
+    "type": "project",
+    "license": "GPL v2 or later",
+    "autoload": {
+        "psr-4": {
+            "Inc\\": "./inc"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kennedy-karuri",
+            "email": "kennkaruri99@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
