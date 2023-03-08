@@ -14,7 +14,7 @@ footer{
     margin-top: auto;
 }
 .homepage {
-	background-image: url(../img/wallpaperflare.com_wallpaper.jpg);
+	background-image: url(../img/nathan-dumlao-LPRrEJU2GbQ-unsplash.jpg);
 	background-size: 100% 100%;
 	background-position: center;
 	min-height: 50vw;
@@ -73,26 +73,6 @@ a {
 }
 
 
-.login>button {
-	padding: 20px;
-	color: white;
-	font-weight: 600;
-	font-size: 20px;
-	border-radius: 30px;
-}
-
-
-.login {
-	background: transparent;
-	
-}
-
-.login:hover {
-	background: rgb(35, 164, 237);
-    border: 2px solid white;
-	
-
-}
 
 
 
@@ -146,8 +126,11 @@ a {
 	padding-bottom: 30px;
 	min-height: 30vw;
 	font-family: "Montserrat";
+	background-color: whitesmoke;
 	
 }
+
+
 
 .row{
 		padding-top: 70px;

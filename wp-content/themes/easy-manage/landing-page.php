@@ -33,15 +33,14 @@
             
         </div>
         <div class="login">
-          <button class="login">LOGIN</button>
-           
+        <a role="button" class="btn btn-outline-primary" href="<?php echo wp_login_url(get_permalink()); ?>">Log In</a>          
         </div>
     </div>
 
     <div class="homepage-content">
-        <h1>ASSIGNING PROJECT AND MANAGING TEAMS MADE EASIER</h1>
+        <h1>ASSIGNING PROJECTS AND MANAGING TEAMS MADE EASIER</h1>
         <div class="button">
-            <button class="start">GET STARTED</button>
+        <a role="button" class="btn btn-outline-primary" href="<?php echo wp_login_url(get_permalink()); ?>">GET STARTED</a>          
            
         </div>
     </div>
@@ -60,7 +59,7 @@
     </div>
   </div>
   <div class="col-sm-6">
-  <img src="wp-content/themes/easy-manage/assets/img/wallpaperflare.com_wallpaper.jpg" class="" alt="" style="height: 400px;width: 400px;">
+  <img src="wp-content/themes/easy-manage/assets/img/andrew-neel-cckf4TsHAuw-unsplash.jpg" class="" alt="" style="height: 400px;width: 400px;">
   </div>
 </div>
 </div>
@@ -80,10 +79,11 @@
 
                 <div class="cards-data">
                     <img src="wp-content/themes/easy-manage/assets/img/User.png">
-                    <h3>Managesers of your System.You can view the whole of your workforce from our application</p>
+                    <h3>Manage users</h3>
+                   <p>Manage users of your System.You can view the whole of your workforce from our application</p>
+                      
+                </div>
                    
-                </div> Users</h3>
-                    <p>Manage u
 
                 <div class="cards-data">
                     <img src="wp-content/themes/easy-manage/assets/img/puser.png">
@@ -100,20 +100,20 @@
             <h1>CONTACTS</h1>
             <p>Incase of any comment or enquiry reach out to us through easymanage@admin.com or fill out the form below.</p>
 
-            <form>
+            <form method="post">
   <!-- 2 column grid layout with text inputs for the first and last names -->
   <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
       <label class="form-label" for="form3Example1">First name</label>
-        <input type="text" id="form3Example1" class="form-control"  placeholder="input your First Name..." />
+        <input type="text" id="name" name="firstname" class="form-control"  placeholder="input your First Name..." />
         
       </div>
     </div>
     <div class="col">
       <div class="form-outline">
       <label class="form-label" for="form3Example2">Last name</label>
-        <input type="text" id="form3Example2" class="form-control"  placeholder="input your second Name..." />
+        <input type="text" id="name" name="secondname" class="form-control"  placeholder="input your second Name..." />
         
       </div>
     </div>
@@ -123,8 +123,8 @@
   <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
-      <label class="form-label" for="form3Example1">Subject Matter</label>
-        <input type="text" id="form3Example1" class="form-control" placeholder="input your subject topic..."/>
+      <label class="form-label" for="form3Example1">Email</label>
+        <input type="text" id="useremail" name="email" class="form-control" placeholder="input your email..."/>
         
       </div>
     </div>
@@ -133,7 +133,7 @@
     <div class="col">
       <div class="form-outline">
       <label class="form-label" for="form3Example2">Telephone Number</label>
-        <input type="text" id="form3Example2" class="form-control"  placeholder="input your telephone number..." />
+        <input type="text" name="telephone" id="tel" class="form-control"  placeholder="input your telephone number..." />
        
       </div>
     </div>
@@ -143,11 +143,11 @@
    <!-- Message input -->
    <div class="form-outline mb-4">
    <label class="form-label" for="form4Example3"  placeholder="input your message...">Message</label>
-    <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+    <textarea class="form-control" name="message" id="message" rows="4"></textarea>
    
   </div>
   <!-- Submit button -->
-  <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+  <button type="submit" name="submitbtn" class="btn btn-primary btn-block mb-4">Send</button>
 
  
 </form>
