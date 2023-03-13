@@ -40,7 +40,7 @@
     <div class="homepage-content">
         <h1>ASSIGNING PROJECTS AND MANAGING TEAMS MADE EASIER</h1>
         <div class="button">
-        <a role="button" class="btn btn-outline-primary" href="<?php echo wp_login_url(get_permalink()); ?>">GET STARTED</a>          
+        <a role="button" class="btn btn-outline-primary" href="../manage/sign-up/">GET STARTED</a>          
            
         </div>
     </div>
@@ -59,40 +59,48 @@
     </div>
   </div>
   <div class="col-sm-6">
-  <img src="wp-content/themes/easy-manage/assets/img/andrew-neel-cckf4TsHAuw-unsplash.jpg" class="" alt="" style="height: 400px;width: 400px;">
+  <img src="wp-content/themes/easy-manage/assets/img/andrew-neel-cckf4TsHAuw-unsplash.jpg" class="" alt="" style="height: 400px;width: 800px;">
   </div>
 </div>
 </div>
-
+<hr>
 <div class="third-page">
         <div class="third-header">
             <h1>SERVICES</h1>
             <p>The following services are offered at Easy-Manage.</p>
         </div>
-        <div class="cards">
-            <div class="cards2">
-                <div class="cards-data">
-                    <img src="wp-content/themes/easy-manage/assets/img/manage.png">
-                    <h3>Project Management</h3>
-                    <p>Easily manage your projects.Save time and resources on our system.</p>
-                </div>
-
-                <div class="cards-data">
-                    <img src="wp-content/themes/easy-manage/assets/img/User.png">
-                    <h3>Manage users</h3>
-                   <p>Manage users of your System.You can view the whole of your workforce from our application</p>
-                      
-                </div>
-                   
-
-                <div class="cards-data">
-                    <img src="wp-content/themes/easy-manage/assets/img/puser.png">
-                    <h3>Assign Projects</h3>
-                    <p>Assign projects to your different members.</p>
-                </div>
-            </div>
-        </div>
+        <div class="card-group" style="padding-right: 50px; gap: 20px;">
+ 
+ 
+        <div class="card" >
+    <img src="wp-content/themes/easy-manage/assets/img/manage.png" class="card-img-top" alt="" style="height: 200px;width: 200px; ">
+    <div class="card-body">
+      <hr>
+      <h5 class="card-title" style="font-weight:bold;">Project Management</h5>
+      <p class="card-text">Easily manage your projects, save time and resources on our system.</p>
     </div>
+  </div>
+  <div class="card">
+  <img src="wp-content/themes/easy-manage/assets/img/manage.png" class="card-img-top" alt="" style="height: 200px;width: 200px; ">
+    <div class="card-body">
+      <hr>
+      <h5 class="card-title" style="font-weight:bold;">Manage Users</h5>
+      <p class="card-text">Manage users of tour system.You can view the whole of your workforce from our application.</p>
+    </div>
+  </div>
+  <div class="card">
+  <img src="wp-content/themes/easy-manage/assets/img/manage.png" class="card-img-top" alt="" style="height: 200px;width: 200px; ">
+    <div class="card-body">
+      <hr>
+      <h5 class="card-title" style="font-weight:bold;">Assign Projects</h5>
+      <p class="card-text">Asssign projects to your different members.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<hr>
 
     <div class="fourth-page">
 
@@ -155,19 +163,20 @@
         </div>
 
     </div>
+    <hr>
 
 <div class="container my-5">
 
   <!-- Footer -->
   <footer
           class="text-center text-lg-start text-white"
-          style="background-color:rgb(48, 89, 218)"
+          style="background-color:black"
           >
           <br>
     <!-- Section: Social media -->
     <section
              class="d-flex justify-content-between p-4"
-             style="background-color: rgba(0, 0, 0, 0.2)"
+             style="background-color: black"
              >
       <!-- Left -->
       <div class="me-5">
@@ -207,7 +216,7 @@
             <h6 class="text-uppercase fw-bold">EASY-MANAGE</h6>
             <hr
                 class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
+                style="width: 130px; background-color: white; height: 2px"
                 />
             <p>
              Assigning projects and Managing teams made Easier
@@ -221,7 +230,7 @@
             <h6 class="text-uppercase fw-bold">Useful links</h6>
             <hr
                 class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
+                style="width: 130px; background-color: #7c4dff; height: 2px"
                 />
             <p>
               <a href="#!" class="text-white">HOME</a>
@@ -243,7 +252,7 @@
             <h6 class="text-uppercase fw-bold">Contact</h6>
             <hr
                 class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
+                style="width: 90px; background-color: white; height: 2px"
                 />
             <p><img src="wp-content/themes/easy-manage/assets/img/phone.png" alt="" style="height:50px;width:50px;"> +254729429104</p>
             <p><img src="wp-content/themes/easy-manage/assets/img/mail.png" alt="" style="height:50px;width:50px;"> easymanage@gmail.com</p>
@@ -270,7 +279,7 @@
   </footer>
   <!-- Footer -->
 
-</div>
+
 <!-- End of .container -->
 
 

@@ -126,7 +126,7 @@ a {
 	padding-bottom: 30px;
 	min-height: 30vw;
 	font-family: "Montserrat";
-	background-color: whitesmoke;
+	background:rgb(212, 199, 199);
 	
 }
 
@@ -143,7 +143,7 @@ a {
 
 .third-page {
 	
-	background: rgb(49, 89, 218);
+	background:rgb(212, 199, 199);
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -161,21 +161,24 @@ a {
 .third-header>h1 {
 	padding: 10px;
 	font-size: 58px;
-	color: white;
+	color: black;
 }
 
 .third-header>p {
-	color: white;
+	color: black;
 	font-size: 20px;
 	padding: 0px 80px 0px 100px;
 
 }
 
 
+/* 
 .cards {
 	display: flex;
 	justify-content: center;
-}
+	gap: 20px;
+	
+} */
 
 .cards2 {
 	width: 75%;
@@ -211,9 +214,11 @@ a {
 	margin: 40px 62px;
 }
 
-h3{
+h5{
 	padding-top: 20px;
 }
+
+
 
 .fourth-header {
 	margin: 6vh;
@@ -241,12 +246,13 @@ h3{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	background:rgb(212, 199, 199);
 
 }
 
 form{
 	border: 2px solid black;
-	padding: 40px;
+	padding: 20px;
 }
 
 
