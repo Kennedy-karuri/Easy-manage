@@ -165,22 +165,20 @@
     </div>
     <hr>
 
-<div class="container my-5">
-
-  <!-- Footer -->
+     <!-- Footer -->
   <footer
           class="text-center text-lg-start text-white"
-          style="background-color:black"
+          style="background:rgb(212, 199, 199);"
           >
           <br>
     <!-- Section: Social media -->
     <section
              class="d-flex justify-content-between p-4"
-             style="background-color: black"
+             style="background-color: rgba(0, 0, 0, 0.2)"
              >
       <!-- Left -->
       <div class="me-5">
-        <span>Get connected with us on social networks:</span>
+        <span style="color:black;">Get connected with us on social networks:</span>
       </div>
       <!-- Left -->
 
@@ -213,12 +211,12 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
-            <h6 class="text-uppercase fw-bold">EASY-MANAGE</h6>
+            <h6 class="text-uppercase fw-bold" style="color:black;">EASY-MANAGE</h6>
             <hr
                 class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 130px; background-color: white; height: 2px"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
                 />
-            <p>
+            <p style="color:black;">
              Assigning projects and Managing teams made Easier
             </p>
           </div>
@@ -227,19 +225,19 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold">Useful links</h6>
+            <h6 class="text-uppercase fw-bold" style="color:black;">Useful links</h6>
             <hr
                 class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 130px; background-color: #7c4dff; height: 2px"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
                 />
             <p>
-              <a href="#!" class="text-white">HOME</a>
+              <a href="#!"  style="color:black;" >HOME</a>
             </p>
             <p>
-              <a href="#!" class="text-white">JOIN-US</a>
+              <a href="#!"  style="color:black;" >JOIN-US</a>
             </p>
             <p>
-              <a href="#!" class="text-white">CONTACTS-US</a>
+              <a href="#!"  style="color:black;" >CONTACTS-US</a>
             </p>
             <p>
             </p>
@@ -249,14 +247,14 @@
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold">Contact</h6>
+            <h6 class="text-uppercase fw-bold" style="color:black;">Contact</h6>
             <hr
                 class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 90px; background-color: white; height: 2px"
+                style="width: 60px;height: 2px"
                 />
-            <p><img src="wp-content/themes/easy-manage/assets/img/phone.png" alt="" style="height:50px;width:50px;"> +254729429104</p>
-            <p><img src="wp-content/themes/easy-manage/assets/img/mail.png" alt="" style="height:50px;width:50px;"> easymanage@gmail.com</p>
-            <p><img src="wp-content/themes/easy-manage/assets/img/location.png" alt="" style="height:50px;width:50px;"> KDS,PLAZA NYERI</p>
+            <p><img src="wp-content/themes/easy-manage/assets/img/phone.png" alt="" style="height:50px;width:50px;color:black;"> +254729429104</p>
+            <p><img src="wp-content/themes/easy-manage/assets/img/mail.png" alt="" style="height:50px;width:50px;" style="color:black;"> easymanage@gmail.com</p>
+            <p><img src="wp-content/themes/easy-manage/assets/img/location.png" alt="" style="height:50px;width:50px;" style="color:black;"> KDS,PLAZA NYERI</p>
           </div>
           <!-- Grid column -->
         </div>
@@ -269,18 +267,16 @@
     <div
          class="text-center p-3"
          style="background-color: rgba(0, 0, 0, 0.2)"
+         style="color:black;"
          >
       © 2023 Copyright:
-      <a class="text-white" href="https://kennedy-karuri.github.io/"
-         >KENNEDY KARURI</a
+      <a  href="https://kennedy-karuri.github.io/"
+      style="color:black;" >KENNEDY KARURI</a
         >
     </div>
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
-
-
-<!-- End of .container -->
 
 
 </body>

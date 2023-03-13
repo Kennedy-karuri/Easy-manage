@@ -95,172 +95,23 @@
         </div>
    
     </nav>
-    <div class="main-content" id="panel">
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 mt-3 shadow-none border-radius-xl bg-transparent" id="navbarTop">
-            <div class="container-fluid py-1 px-3">
-                <nav aria-label="breadcrumb">
-                <h2 class="my-2 text-center text-dark">
-                        <?php global $current_user; wp_get_current_user(); ?>
-                        <?php 
-                            if ( is_user_logged_in() ) { 
-                            echo 'Welcome ' . $current_user->user_login . "\n"; 
-                            } else { 
-                            wp_loginout(); 
-                            } 
-                        ?>
-                    </h2>
-                    <h6 class="font-weight-bolder mb-0">Dashboard</h6>
-                </nav>
-                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="Type here...">
-                        </div>
-                    </div>
-                    <ul class="navbar-nav  justify-content-end">
-                        <li class="nav-item d-flex align-items-center">
-                            <?php
-            if (is_user_logged_in()) : 
-            ?>
-                <a role="button" class="btn btn-outline-primary" href=" <?php echo wp_logout_url(get_permalink()); ?>">Log Out</a>
-            <?php 
-            else : 
-            ?>
-                <a role="button" class="btn btn-outline-primary" href="<?php echo wp_login_url(get_permalink()); ?>">Log In</a>
-            <?php 
-            endif;
-        ?>
-                        </li>
-                
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+
+    <div class="wrapper">
+    <div class="container">
+        <div class="row no-gutters height-self-center">
+            <div class="col-sm-12 text-center align-self-center">
+               <div class="iq-error position-relative">
+                     <img src="../assets/images/error/404.png" class="img-fluid iq-error-img" alt="">
+                     <h2 class="mb-0 mt-4">Sorry! This Page Was Not Found.</h2>
+                     <p>Requested page dose not exist.</p>
+                     <a class="btn btn-primary d-inline-flex align-items-center mt-3" href="#!"><i class="ri-home-4-line"></i>Home</a>
+               </div>
             </div>
-        </nav>
-    </div>
+         </div>
+   </div>
+</div>
 
-   <div class="container">
-    <div class="card">
-    <div class="m-5 card card-outline card-success">
-                        <div class="card-header">
-                            <div class="card-tools d-flex mb-2">
-                                
-                                <a class=" ms-auto btn btn-primary" href="../completed-projects"> Completed Projects</a>
-                            </div>
-                            <div class="alert alert-warning alert-dismissible text-center" <?php if ($project_status == 'In Progress' || $project_status == 'Completed'  || $project_status == '') { echo'style="display:none;"'; } ?> role="alert">
-                                <strong>Warning!</strong> Once a project has been accepted it cannot be retracted.
-                            </div>
-                            <div class="alert alert-info mb-2 alert-dismissible text-center" <?php if ($project_status == 'Pending' || $project_status == 'Completed'  || $project_status == '') { echo'style="display:none;"'; } ?>  role="alert">
-                                <strong>Success!</strong> This Project has been marked to be In Progress
-                            </div>
-                            <div class="alert alert-success alert-dismissible text-center" <?php if ($project_status == 'In Progress' || $project_status == 'Pending'  || $project_status == '') { echo'style="display:none;"'; } ?>  role="alert">
-                                <strong>Congratulations!</strong> You have completed the project.
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-hover table-condensed" id="list">
-                                <colgroup>
-                                    <col width="5%">
-                                    <col width="10%">
-                                    <col width="25%">
-                                    <col width="15%">
-                                    <col width="15%">
-                                    <col width="10%">
-                                    <col width="10%">
-                                    <col width="10%">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">#</th>
-                                        <th>Project</th>
-                                        <th>Description</th>
-                                        <th>Project Started</th>
-                                        <th>Project Due Date</th>
-                                        <th>Project Status</th>
-                                        <th>React</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <?php
-                                // The Query
-                                $query = new WP_Query(array(
-                                    'post_type' => 'project',
-                                    'meta_query' => array(
-                                        array(
-                                            'key' => 'project_user',
-                                            'value' => $current_user->ID,
-                                        )
-                                    )
-                                ));
-                                query_posts( $query );
-
-                                // The Loop
-                                if($query->have_posts()):
-                                while ( $query->have_posts() ) : 
-                                    $query->the_post();  
-                                // your post content ( title, excerpt, thumb....)
-
-                                $project_start = get_post_meta(get_the_ID(), 'project_start', true);
-                                $project_end = get_post_meta(get_the_ID(), 'project_end', true);
-                                $project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
-
-                                $project_user_id = get_post_meta(get_the_ID(), 'project_user', true);
-
-                                $project_user = '';
-                                if ( $project_user_id ) {
-                                    $user_info = get_userdata( $project_user_id );
-                                    if ( $user_info ) {
-                                        $project_user = $user_info->display_name;
-                                    }
-                                }
-
-                                ?>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center"><p class="mt-2">1</p></td>
-                                        <td >
-                                            <p class="mt-2"><b><?php the_title();?></b></p>
-                                        </td>
-                                        <td>
-                                            <p class="mt-0 text-truncate"><?php the_content();?></b></p>
-                                        </td>
-
-                                        <td><p class="mt-2"><b><?php echo esc_attr( $project_start ) ;?></b></p></td>
-                                        <td><p class="mt-2"><b><?php echo esc_attr( $project_end ) ;?></b></p></td>
-                                        <td>
-                                            <p class="mt-2"><span class=''><?php echo esc_attr( $project_status ) ;?></span></p>                      
-                                        </td>
-
-                                        <td>
-                                            <div class="mt-2 d-flex gap-1" >
-                                                <form action="" method="post">
-                                                    <input type="hidden" name="meta-field" value="In Progress">
-                                                    <input type="hidden" name="post-id" value="<?php echo get_the_ID(); ?>">                      
-                                                    <button class="btn btn-primary"type="submit" name="accepted" <?php if ($project_status == 'In Progress' || $project_status == 'Completed') { echo'disabled'; } ?> >Accept</button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="mt-2 d-flex gap-1" >
-                                                <form action="" method="post">
-                                                    <input type="hidden" name="meta-field2" value="Completed">
-                                                    <input type="hidden" name="project-id" value="<?php echo get_the_ID(); ?>">
-                                                    <button class="btn btn-primary"type="submit" name="completed" <?php if ($project_status == 'Completed') { echo'disabled'; } ?>>Completed</button>
-                                                </form>
-                                            </div>                       
-                                        </td>
-                                    </tr>	
-                                    
-                                </tbody>
-                                <?php
-                                    endwhile;
-                                    //Reset Query
-                                    wp_reset_query();
-                                endif;
-                                ?>
-                            </table>
+    
     </div>
    </div>
    

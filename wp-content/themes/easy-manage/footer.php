@@ -1,5 +1,3 @@
-<div class="container my-5">
-
   <!-- Footer -->
   <footer
           class="text-center text-lg-start text-white"
@@ -111,9 +109,6 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
-
-</div>
-<!-- End of .container -->
 <?php wp_footer();?>
     </body>
 </html>
