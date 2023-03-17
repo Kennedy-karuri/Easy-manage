@@ -11,7 +11,89 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/theme.css">
    
+   
+   <style>
+body{
+  
+  background-image: url(../wp-content/themes/easy-manage/assets/img/nathan-dumlao-LPRrEJU2GbQ-unsplash.jpg);
+	background-size: 100% 100%;
+	background-position: center;
+	min-height: 50vw;
+	font-family: "Montserrat";
+	background-color: blue;
+
+}
+    
+ 
+.homepage-heading {
+	width: 100%;
+	padding-top: 1vw;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+    
+}
+
+.heading2 {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 450px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.links {
+	display: flex;
+	justify-content: space-evenly;
+  gap: 50px;
+}
+
+
+.list {
+	margin: 20px;
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	display: inline-block;
+
+}
+
+.brand>li {
+
+	font-weight: 700;
+	font-size: 50px;
+	color: white;
+  
+}
+   </style>
+
+
+
 </head>
+<body>
+  
+
+    <div class="homepage-heading">
+        <div class="heading2">
+            <div class="brand">
+                <li class="list">EASY-MANAGE</li>
+            </div>
+            <div class="links">
+                <li class="list"><a href="/manage/">Home</a></li>
+                <li class="list"><a href="/manage/#about">About-Us</a></li>
+                <li class="list"><a href="/manage/#services">Services</a></li>
+                <li class="list"><a href="/manage/#contact">Contact-Us</a></li>
+
+            </div>
+            
+        </div>
+        <div class="login">
+                 
+        </div>
+    </div>
 <?php
 
 $errors =array();
@@ -35,7 +117,7 @@ if(isset($_POST['signup'])){
             'show_admin_bar_front' =>  false, // display the Admin Bar for the user 'true' or 'false'
             'user_status'          =>  0, // set the user as inactive
             'meta_input' => array(
-               'registration_status' => 'pending', // add custom field to mark the user as unverified
+               'registration_status' => 'pending',// add custom field to mark the user as unverified
                'verified' => false, // add a custom field to mark the user as unverified
             )
         );
@@ -59,7 +141,7 @@ if(isset($_POST['signup'])){
             $message .= site_url('/registration-approval/') . '?user_id=' . $user_id . '&action=approve\n\n';
             $message .= 'Thank you';
 
-            update_user_meta($user_id, 'registration_status', 'pending');
+            update_user_meta($user_id, 'registration_status', 'pending','deactivate',);
             
             wp_mail($to, $subject, $message);
 
@@ -98,7 +180,7 @@ if(isset($_POST['signup'])){
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+              <h2 class="text-uppercase text-center mb-5">JOIN EASY MANAGE</h2>
 
               <form action="" method="post">
 
@@ -130,10 +212,10 @@ if(isset($_POST['signup'])){
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="submit" class="btn btn-white" name="signup">Sign Up</button>
+                  <button type="submit" class="btn btn-success" name="signup">Sign Up</button>
                 </div>
 
-                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="<?php echo esc_url(wp_login_url(get_permalink())); ?>"
+                <p class="text-center text-muted mt-5 mb-0">Already have an account? <a href="<?php echo esc_url(wp_login_url(get_permalink())); ?>"
                     class="fw-bold text-body"><u>Login here</u></a></p>
 
               </form>
@@ -144,7 +226,8 @@ if(isset($_POST['signup'])){
       </div>
     </div>
   </div>
+  
 </section>
 
 
-
+</body>

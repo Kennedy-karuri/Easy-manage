@@ -18,16 +18,17 @@
 <body>
    
 <div class="homepage">
-    <div class="homepage-heading">
+<div class="homepage-heading">
         <div class="heading2">
             <div class="brand">
                 <li class="list">EASY-MANAGE</li>
             </div>
+            
             <div class="links">
-                <li class="list"><a href="#">Home</a></li>
-                <li class="list"><a href="#">About-Us</a></li>
-                <li class="list"><a href="#">Services</a></li>
-                <li class="list"><a href="#">Contact-Us</a></li>
+                <li class="list"><a href="/manage/#home">Home</a></li>
+                <li class="list"><a href="/manage/#about">About-Us</a></li>
+                <li class="list"><a href="/manage/#services">Services</a></li>
+                <li class="list"><a href="/manage/#contact">Contact-Us</a></li>
 
             </div>
             
@@ -37,7 +38,7 @@
         </div>
     </div>
 
-    <div class="homepage-content">
+    <div class="homepage-content" id="home" style="color:white;font-size:70px;">
         <h1>ASSIGNING PROJECTS AND MANAGING TEAMS MADE EASIER</h1>
         <div class="button">
         <a role="button" class="btn btn-outline-primary" href="../manage/sign-up/">GET STARTED</a>          
@@ -46,7 +47,7 @@
     </div>
 </div>
 
-<div class="second-page">
+<div class="second-page" id="about">
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
@@ -64,7 +65,7 @@
 </div>
 </div>
 <hr>
-<div class="third-page">
+<div class="third-page" id="services">
         <div class="third-header">
             <h1>SERVICES</h1>
             <p>The following services are offered at Easy-Manage.</p>
@@ -102,10 +103,10 @@
 
 <hr>
 
-    <div class="fourth-page">
+    <div class="fourth-page" id="contact">
 
     <div class="fourth-header">
-            <h1>CONTACTS</h1>
+            <h1>CONTACT US</h1>
             <p>Incase of any comment or enquiry reach out to us through easymanage@admin.com or fill out the form below.</p>
 
             <form method="post">
@@ -230,17 +231,10 @@
                 class="mb-4 mt-0 d-inline-block mx-auto"
                 style="width: 60px; background-color: #7c4dff; height: 2px"
                 />
-            <p>
-              <a href="#!"  style="color:black;" >HOME</a>
-            </p>
-            <p>
-              <a href="#!"  style="color:black;" >JOIN-US</a>
-            </p>
-            <p>
-              <a href="#!"  style="color:black;" >CONTACTS-US</a>
-            </p>
-            <p>
-            </p>
+                <li class="list"><a href="/manage/">Home</a></li>
+                <li class="list"><a href="/manage/#about">About-Us</a></li>
+                <li class="list"><a href="/manage/#services">Services</a></li>
+                <li class="list"><a href="/manage/#contact">Contact-Us</a></li>
           </div>
           <!-- Grid column -->
 

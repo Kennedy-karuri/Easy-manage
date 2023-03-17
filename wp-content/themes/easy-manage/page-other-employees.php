@@ -142,6 +142,17 @@
     </div>
     <div class="container">
       <div class="card">
+      <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6 style="text-align:center;font-weight:bolder;">EMPLOYEES</h6>
+
+                  <form class="mr-3 position-relative">
+                              <div class="form-group mb-0">
+                                 <input type="search" class="form-control" id="exampleInputSearch" placeholder="Search"
+                                    aria-controls="user-list-table">
+                              </div>
+                           </form>
+                </div>
 
       <table id="user-list-table" class="table table-striped dataTable mt-4" role="grid"
                      aria-describedby="user-list-page-info">
@@ -169,7 +180,7 @@
                             Kenya
                            </td>
                            <td><span class="badge bg-primary">Active</span></td>
-                           <td>Ken Technoogies</td>
+                           <td>Ken Technologies</td>
                            <td></td>
                            <td>
                               <div class="flex align-items-center list-user-action">

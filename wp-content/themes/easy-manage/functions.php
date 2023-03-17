@@ -110,7 +110,7 @@ function dashboard_page_template($template) {
         $current_user = wp_get_current_user();
         $user = new WP_User( $current_user->ID);
 
-        if(in_array('project_manager', $user->roles) || in_array('root', $user->roles)){
+        if(in_array('project_manager', $user->roles) || in_array('administrator', $user->roles)){
             $new_template = locate_template( array( 'dashboard-pm.php' ) );
         }
         elseif(in_array('developer', $user->roles)){
@@ -137,7 +137,7 @@ function developers_page_template($template) {
         $user = new WP_User( $current_user->ID);
 
         if(in_array('project_manager', $user->roles) || in_array('administrator', $user->roles)){
-            $new_template = locate_template( array( 'page-members.php' ) );
+            $new_template = locate_template( array( 'page-employees.php' ) );
         }
         elseif(in_array('developer', $user->roles)){
             $new_template = locate_template( array( 'page-other-employees.php' ) );
@@ -166,7 +166,7 @@ function projects_page_template($template) {
             $new_template = locate_template( array( 'page-projects.php' ) );
         }
         elseif(in_array('developer', $user->roles)){
-            $new_template = locate_template( array( 'page-projects.php' ) );
+            $new_template = locate_template( array( 'page-project-users.php' ) );
         }else{
             $new_template = locate_template( array( 'landing-page.php' ) );
         }

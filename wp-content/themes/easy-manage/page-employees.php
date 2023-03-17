@@ -200,16 +200,15 @@
                               <div class="flex align-items-center list-user-action">
                                 <form action="" method="post">
                                     <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
-                                    <button class="btn btn-success"type="submit" name="activate_user">Activate</button>
+                                    <?php
+                                        if($registration_status == 'pending') {echo'<button class="btn btn-success"type="submit" name="activate_user">Activate</button>';}else{
+                                            echo'<button class="btn btn-danger"type="submit" name="activate_user">Deactivate</button>';
+                                        }
+                                        
+                                    ?>
+
                                 </form>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Add" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Deny" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Edit" href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Delete" href="#"><i class="ri-delete-bin-line mr-0"></i></a>
+                                 
                               </div>
                            </td>
                         </tr>

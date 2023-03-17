@@ -1,6 +1,6 @@
 <?php 
 /**
- * Template Name: dashboard
+ * Template Name: Dashboard
  */
 ?>
 
@@ -18,6 +18,7 @@
    
 </head>
 
+
 <body class="g-sidenav-show">
     <nav class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start position-absolute ms-3 bg-white" id="sidenav-main">
         <div class="sidenav-header">
@@ -31,7 +32,7 @@
         <div class="collapse navbar-collapse  w-auto" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link  active" href="javascript:;">
+                    <a class="nav-link  active" href="dashboard">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>shop </title>
@@ -51,7 +52,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="javascript:;">
+                    <a class="nav-link  " href="../manage/project-users/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>office</title>
@@ -71,7 +72,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="">
+                    <a class="nav-link  " href="../manage/employees/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>credit-card</title>
@@ -109,7 +110,7 @@
                             } 
                         ?>
                     </h2>
-                    <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+                   
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -139,129 +140,449 @@
                 </div>
             </div>
         </nav>
-    </div>
+        <div class="container-fluid pt-3">
+            <div class="card p-3 mb-4">
+                <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100" style="background-image: url(https://demos.creative-tim.com/soft-ui-dashboard/assets/img/ivancik.jpg);">
+                    <span class="mask bg-gradient-dark"></span>
+                    <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                        <h5 class="text-white font-weight-bolder mb-4 pt-2">Welcome to Easy-Manage</h5>
+                        <p class="text-white">Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
+                       
+                    </div>
+                </div>
+            </div>
 
-   <div class="container">
-    <div class="card">
-    <div class="m-5 card card-outline card-success">
-                        <div class="card-header">
-                            <div class="card-tools d-flex mb-2">
-                                
-                                <a class=" ms-auto btn btn-primary" href="../completed-projects"> Completed Projects</a>
-                            </div>
-                            <div class="alert alert-warning alert-dismissible text-center" <?php if ($project_status == 'In Progress' || $project_status == 'Completed'  || $project_status == '') { echo'style="display:none;"'; } ?> role="alert">
-                                <strong>Warning!</strong> Once a project has been accepted it cannot be retracted.
-                            </div>
-                            <div class="alert alert-info mb-2 alert-dismissible text-center" <?php if ($project_status == 'Pending' || $project_status == 'Completed'  || $project_status == '') { echo'style="display:none;"'; } ?>  role="alert">
-                                <strong>Success!</strong> This Project has been marked to be In Progress
-                            </div>
-                            <div class="alert alert-success alert-dismissible text-center" <?php if ($project_status == 'In Progress' || $project_status == 'Pending'  || $project_status == '') { echo'style="display:none;"'; } ?>  role="alert">
-                                <strong>Congratulations!</strong> You have completed the project.
-                            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
                         </div>
-                        <div class="card-body">
-                            <table class="table table-hover table-condensed" id="list">
-                                <colgroup>
-                                    <col width="5%">
-                                    <col width="10%">
-                                    <col width="25%">
-                                    <col width="15%">
-                                    <col width="15%">
-                                    <col width="10%">
-                                    <col width="10%">
-                                    <col width="10%">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">#</th>
-                                        <th>Project</th>
-                                        <th>Description</th>
-                                        <th>Project Started</th>
-                                        <th>Project Due Date</th>
-                                        <th>Project Status</th>
-                                        <th>React</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <?php
-                                // The Query
-                                $query = new WP_Query(array(
-                                    'post_type' => 'project',
-                                    'meta_query' => array(
-                                        array(
-                                            'key' => 'project_user',
-                                            'value' => $current_user->ID,
-                                        )
-                                    )
-                                ));
-                                query_posts( $query );
-
-                                // The Loop
-                                if($query->have_posts()):
-                                while ( $query->have_posts() ) : 
-                                    $query->the_post();  
-                                // your post content ( title, excerpt, thumb....)
-
-                                $project_start = get_post_meta(get_the_ID(), 'project_start', true);
-                                $project_end = get_post_meta(get_the_ID(), 'project_end', true);
-                                $project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
-
-                                $project_user_id = get_post_meta(get_the_ID(), 'project_user', true);
-
-                                $project_user = '';
-                                if ( $project_user_id ) {
-                                    $user_info = get_userdata( $project_user_id );
-                                    if ( $user_info ) {
-                                        $project_user = $user_info->display_name;
-                                    }
-                                }
-
-                                ?>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center"><p class="mt-2">1</p></td>
-                                        <td >
-                                            <p class="mt-2"><b><?php the_title();?></b></p>
-                                        </td>
-                                        <td>
-                                            <p class="mt-0 text-truncate"><?php the_content();?></b></p>
-                                        </td>
-
-                                        <td><p class="mt-2"><b><?php echo esc_attr( $project_start ) ;?></b></p></td>
-                                        <td><p class="mt-2"><b><?php echo esc_attr( $project_end ) ;?></b></p></td>
-                                        <td>
-                                            <p class="mt-2"><span class=''><?php echo esc_attr( $project_status ) ;?></span></p>                      
-                                        </td>
-
-                                        <td>
-                                            <div class="mt-2 d-flex gap-1" >
-                                                <form action="" method="post">
-                                                    <input type="hidden" name="meta-field" value="In Progress">
-                                                    <input type="hidden" name="post-id" value="<?php echo get_the_ID(); ?>">                      
-                                                    <button class="btn btn-primary"type="submit" name="accepted" <?php if ($project_status == 'In Progress' || $project_status == 'Completed') { echo'disabled'; } ?> >Accept</button>
-                                                </form>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn bg-gradient-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Projects table</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center justify-content-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Project</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Budget</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Completion</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2">
+                                            <div>
+                                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm rounded-circle me-2">
                                             </div>
-                                        </td>
-                                        <td>
-                                            <div class="mt-2 d-flex gap-1" >
-                                                <form action="" method="post">
-                                                    <input type="hidden" name="meta-field2" value="Completed">
-                                                    <input type="hidden" name="project-id" value="<?php echo get_the_ID(); ?>">
-                                                    <button class="btn btn-primary"type="submit" name="completed" <?php if ($project_status == 'Completed') { echo'disabled'; } ?>>Completed</button>
-                                                </form>
-                                            </div>                       
-                                        </td>
-                                    </tr>	
-                                    
-                                </tbody>
-                                <?php
-                                    endwhile;
-                                    //Reset Query
-                                    wp_reset_query();
-                                endif;
-                                ?>
-                            </table>
+                                            <div class="my-auto">
+                                                <h6 class="mb-0 text-sm">Spotify</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">$2,500</p>
+                                    </td>
+                                    <td>
+                                        <span class="text-xs font-weight-bold">working</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <span class="me-2 text-xs font-weight-bold">60%</span>
+                                            <div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <button class="btn btn-link text-secondary mb-0">
+                                            <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2">
+                                            <div>
+                                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/small-logos//logo-invision.svg" class="avatar avatar-sm rounded-circle me-2">
+                                            </div>
+                                            <div class="my-auto">
+                                                <h6 class="mb-0 text-sm">Invision</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">$5,000</p>
+                                    </td>
+                                    <td>
+                                        <span class="text-xs font-weight-bold">done</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <span class="me-2 text-xs font-weight-bold">100%</span>
+                                            <div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2">
+                                            <div>
+                                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/small-logos//logo-jira.svg" class="avatar avatar-sm rounded-circle me-2">
+                                            </div>
+                                            <div class="my-auto">
+                                                <h6 class="mb-0 text-sm">Jira</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">$3,400</p>
+                                    </td>
+                                    <td>
+                                        <span class="text-xs font-weight-bold">canceled</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <span class="me-2 text-xs font-weight-bold">30%</span>
+                                            <div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="30" style="width: 30%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2">
+                                            <div>
+                                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm rounded-circle me-2">
+                                            </div>
+                                            <div class="my-auto">
+                                                <h6 class="mb-0 text-sm">Slack</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">$1,000</p>
+                                    </td>
+                                    <td>
+                                        <span class="text-xs font-weight-bold">canceled</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <span class="me-2 text-xs font-weight-bold">0%</span>
+                                            <div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0" style="width: 0%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2">
+                                            <div>
+                                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/small-logos/logo-webdev.svg" class="avatar avatar-sm rounded-circle me-2">
+                                            </div>
+                                            <div class="my-auto">
+                                                <h6 class="mb-0 text-sm">Webdev</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">$14,000</p>
+                                    </td>
+                                    <td>
+                                        <span class="text-xs font-weight-bold">working</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <span class="me-2 text-xs font-weight-bold">80%</span>
+                                            <div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="80" style="width: 80%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2">
+                                            <div>
+                                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm rounded-circle me-2">
+                                            </div>
+                                            <div class="my-auto">
+                                                <h6 class="mb-0 text-sm">Adobe XD</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">$2,300</p>
+                                    </td>
+                                    <td>
+                                        <span class="text-xs font-weight-bold">done</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <span class="me-2 text-xs font-weight-bold">100%</span>
+                                            <div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Authors table</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
+                                    <th class="text-secondary opacity-7"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">John Michael</h6>
+                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Manager</p>
+                                        <p class="text-xs text-secondary mb-0">Organization</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-success">Online</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                            Edit
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/team-3.jpg" class="avatar avatar-sm me-3">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Programator</p>
+                                        <p class="text-xs text-secondary mb-0">Developer</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                            Edit
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/team-4.jpg" class="avatar avatar-sm me-3">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">Laurent Perrier</h6>
+                                                <p class="text-xs text-secondary mb-0">laurent@creative-tim.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Executive</p>
+                                        <p class="text-xs text-secondary mb-0">Projects</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-success">Online</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                            Edit
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/team-3.jpg" class="avatar avatar-sm me-3">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">Michael Levi</h6>
+                                                <p class="text-xs text-secondary mb-0">michael@creative-tim.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Programator</p>
+                                        <p class="text-xs text-secondary mb-0">Developer</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-success">Online</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                            Edit
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">Richard Gran</h6>
+                                                <p class="text-xs text-secondary mb-0">richard@creative-tim.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Manager</p>
+                                        <p class="text-xs text-secondary mb-0">Executive</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">04/10/21</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                            Edit
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/team-4.jpg" class="avatar avatar-sm me-3">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">Miriam Eric</h6>
+                                                <p class="text-xs text-secondary mb-0">miriam@creative-tim.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Programtor</p>
+                                        <p class="text-xs text-secondary mb-0">Developer</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                            Edit
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-   </div>
    
 </body>

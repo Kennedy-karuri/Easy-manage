@@ -148,7 +148,7 @@ $user = new WP_User( $current_user ->ID);
 
 ?>
 <div class="container">
-    <div class="card">
+    <div class="card" style="width:1500px">
     <div class="card-header">
                             <div class=" d-flex  gap-5">
                                 <h3 class="flex-grow-1 text-center text-primary">List of Projects</h3>
