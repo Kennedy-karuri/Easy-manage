@@ -107,12 +107,14 @@ if(isset($_POST['signup'])){
         $user_login = $_POST['username'];
         $user_email = $_POST['email'];
         $user_pass  = $_POST['password'];
+        $user_telephone  = $_POST['telephone'];
         
 
         $data = array(
             'user_login'           =>  $user_login, // the user's login username.
             'user_email'           =>  $user_email, //enter email
             'user_pass'	           =>  $user_pass, // not necessary to hash password ( The plain-text user password ).
+            'user_telphone'	           =>  $user_pass, // not necessary to hash password ( The plain-text user password ).
             'role'                 =>  'member', //give role of member
             'show_admin_bar_front' =>  false, // display the Admin Bar for the user 'true' or 'false'
             'user_status'          =>  0, // set the user as inactive
@@ -192,6 +194,11 @@ if(isset($_POST['signup'])){
                 <div class="form-outline mb-4">
                 <input class="floating-input form-control" name="email"type="email" placeholder="enter your email... " required>
                 <label>Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                <input class="floating-input form-control" name="telephone"type="number" placeholder="enter your telephone number... " required>
+                <label>Telephone</label>
                 </div>
 
                 <div class="form-outline mb-4">

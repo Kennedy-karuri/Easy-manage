@@ -98,6 +98,63 @@ function custom_theme_setup() {
 add_action( 'after_setup_theme', 'custom_theme_setup' );
 
 
+function register_rest_api_routes(){
+    register_rest_route('projects/v1', 'api(/(?P<id>\d+))?',array('callback' => 'get_projects'));
+}
+
+
+function get_projects($data){
+    $id = $data['id'];
+    
+    $args = array(
+        'post_type' => 'project',
+        'post_per_page' => 5,
+        'status' => 'publish',
+    );
+
+    if (isset($id)) {
+        $args['p'] = $id; // Set the post ID to search for
+    }
+
+    $new_query = new WP_Query($args);
+    $projects = $new_query->posts;
+
+    $projects_with_meta = array();
+    foreach ($projects as $project) {
+        $project_id = $project->ID;
+        $project_start = get_post_meta($project_id, 'project_start', true);
+        $project_end = get_post_meta($project_id, 'project_end', true);
+        $project_status = get_post_meta($project_id, 'project_status_select', true);
+        $project_user_id = get_post_meta($project_id, 'project_user', true);
+
+        // Create an array with the project data and meta
+        $project_with_meta = array(
+            'ID' => $project_id,
+            'post_title' => $project->post_title,
+            'post_content' => $project->post_content,
+            'post_date' => $project->post_date,
+            'project_start' => $project_start,
+            'project_end' => $project_end,
+            'project_status' => $project_status,
+            'project_user_id' => $project_user_id,
+        );
+
+        // Add the project to the array
+        $projects_with_meta[] = $project_with_meta;
+    }
+
+    return $projects_with_meta;
+}
+
+
+
+
+add_action('rest_api_init','register_rest_api_routes');
+
+
+
+
+
 /*-------------------------------------------------------------------------*/
 /*             SHOW DIFFERENT DASHBOARD DEPENDING ON USER                  */
 /*-------------------------------------------------------------------------*/

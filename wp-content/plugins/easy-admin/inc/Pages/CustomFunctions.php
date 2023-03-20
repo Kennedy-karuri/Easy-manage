@@ -12,15 +12,9 @@ class CustomFunctions{
     public function register(){
         add_filter( 'login_redirect', array($this, 'my_login_redirect'), 10, 3);
         add_action('after_setup_theme', array($this, 'remove_admin_bar'));
-        // add_action( 'save_post_project', array($this, 'save_project_user'), 10, 3 );
-        // add_filter( 'user_has_cap', array($this, 'check_project_user_capability'), 10, 4 );
         add_action('template_redirect', array($this, 'my_non_logged_redirect'));
 
-        // add_filter( 'deprecated_constructor_trigger_error', '__return_false' );
-        // add_filter( 'deprecated_function_trigger_error', '__return_false' );
-        // add_filter( 'deprecated_file_trigger_error', '__return_false' );
-        // add_filter( 'deprecated_argument_trigger_error', '__return_false' );
-        // add_filter( 'deprecated_hook_trigger_error', '__return_false' );
+     
     }
 
     
