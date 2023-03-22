@@ -183,11 +183,18 @@ if (isset( $_POST['cpt_nonce_field'] ) && wp_verify_nonce( $_POST['cpt_nonce_fie
         ),
     ) );
 
-    if ( ! empty( $assigned_projects ) ) {
+    $registration_status = get_user_meta($developer_id, 'registration_status', true );
+
+    
+    if ( $registration_status !== 'active') {
+        // Developer is inactive
+        $alert_type = 'danger';
+        $alert_message = 'Developer is inactive!';
+    } elseif(! empty( $assigned_projects ) ) {
         // Developer already has an assigned project, don't assign another
         $alert_type = 'danger';
         $alert_message = 'Developer already has an assigned project.';
-    } else {
+    }else {
         // create post object with the form values
                 // Create a new project post
         $project_title = sanitize_text_field($_POST['title']);

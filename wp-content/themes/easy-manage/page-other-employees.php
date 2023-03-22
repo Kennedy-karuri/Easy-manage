@@ -129,14 +129,11 @@
                             } 
                         ?>
                     </h2>
-                    <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+                   
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="Type here...">
-                        </div>
+            
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
@@ -185,13 +182,13 @@
                            <th>Status</th>
                            <th>Company</th>
                            <th>Join Date</th>
-                           <th style="min-width: 100px">Action</th>
+                           
                         </tr>
                      </thead>
                             <tbody>
 
                 <?php
-                $users = get_users( array( 'role__in' => array( 'member' ) ) );
+                $users = get_users( array( 'role__in' => array( 'member','developer' ) ) );
                      foreach ( $users as $user ) {
                         $user_id = $user->ID;
                         $username = $user->user_login;
@@ -208,14 +205,7 @@
                            <td><span <?php if ($registration_status == 'pending') { echo'class="badge bg-danger"'; } ?> <?php if ($registration_status == 'active') { echo'class="badge text-bg-success"'; } ?> <?php if ($registration_status == 'inactive') { echo'class="badge text-bg-primary"'; } ?> <?php if ($registration_status == 'Completed') { echo'class="badge text-bg-success"'; } ?>><?php echo esc_html( $registration_status);?></span></td>
                            <td>Ken Technologies</td>
                            <td><?php echo '<span>' . esc_html( date( "d-m-Y", strtotime($user_register ) ) ) . '</span>';?></td>
-                           <td>
-                              <div class="flex align-items-center list-user-action">
-                               <button>view</button>
-
-                                </form>
-                                 
-                              </div>
-                           </td>
+                           
                         </tr>
                         <?php }?>
                             </tbody>

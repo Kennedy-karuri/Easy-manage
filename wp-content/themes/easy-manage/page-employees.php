@@ -211,7 +211,7 @@
                             <tbody>
 
                 <?php
-                $users = get_users( array( 'role__in' => array( 'member' ) ) );
+                $users = get_users( array( 'role__in' => array( 'member','developer' ) ) );
                      foreach ( $users as $user ) {
                         $user_id = $user->ID;
                         $username = $user->user_login;

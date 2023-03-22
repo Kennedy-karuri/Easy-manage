@@ -284,17 +284,16 @@
                            <th>Username</th>
                            <th>Nickname</th>
                            <th>Email</th>
-                            <th>Website</th>
                            <th>Status</th>
                            <th>Company</th>
                            <th>Join Date</th>
-                           <th style="min-width: 100px">Action</th>
+                          
                         </tr>
                      </thead>
                             <tbody>
 
                 <?php
-                $users = get_users( array( 'role__in' => array( 'member' ) ) );
+                $users = get_users( array( 'role__in' => array( 'developer','member' ) ) );
                      foreach ( $users as $user ) {
                         $user_id = $user->ID;
                         $username = $user->user_login;
@@ -307,13 +306,12 @@
                            <td><?php echo '<span>' . esc_html( $username ) . '</span>';?></td>
                            <td><?php echo '<span>' . esc_html( $display_name ) . '</span>';?></td>
                            <td><?php echo '<span>' . esc_html( $email ) . '</span>';?></td>
-                           <td></td>
+                           
                            <td><span <?php if ($registration_status == 'pending') { echo'class="badge bg-danger"'; } ?> <?php if ($registration_status == 'active') { echo'class="badge text-bg-success"'; } ?> <?php if ($registration_status == 'inactive') { echo'class="badge text-bg-primary"'; } ?> <?php if ($registration_status == 'Completed') { echo'class="badge text-bg-success"'; } ?>><?php echo esc_html( $registration_status);?></span></td>
                            <td>Ken Technologies</td>
                            <td><?php echo '<span>' . esc_html( date( "d-m-Y", strtotime($user_register ) ) ) . '</span>';?></td>
                            <td>
                               <div class="flex align-items-center list-user-action">
-                              <a href="../manage/update-profile/"><button class="btn btn-primary"type="submit" name="edit_user">Edit</button></a>
 
                                 </form>
                                  

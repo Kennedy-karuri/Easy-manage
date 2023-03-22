@@ -1,6 +1,6 @@
 <?php 
 /**
- * Template Name: completed-projects
+ * Template Name: test
  */
 ?>
 
@@ -18,7 +18,11 @@
    
 </head>
 
-
+<div class="container">
+    <div class="card">
+    
+    </div>
+</div>
 
 <body class="g-sidenav-show">
     <nav class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start position-absolute ms-3 bg-white" id="sidenav-main">
@@ -53,7 +57,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/project-users/">
+                    <a class="nav-link  " href="../manage/projects">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>office</title>
@@ -73,7 +77,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/all-employees/">
+                    <a class="nav-link  " href="../manage/employees">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>credit-card</title>
@@ -93,7 +97,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/user-profile/">
+                    <a class="nav-link  " href="../manage/view-profile/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>credit-card</title>
@@ -120,7 +124,7 @@
     <div class="main-content" id="panel">
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 mt-3 shadow-none border-radius-xl bg-transparent" id="navbarTop">
             <div class="container-fluid py-1 px-3">
-            <nav aria-label="breadcrumb">
+                <nav aria-label="breadcrumb">
                 <h2 class="my-2 text-center text-dark">
                         <?php global $current_user; wp_get_current_user(); ?>
                         <?php 
@@ -131,14 +135,11 @@
                             } 
                         ?>
                     </h2>
-                    
+                   
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="Type here...">
-                        </div>
+                       
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
@@ -161,172 +162,129 @@
                 </div>
             </div>
         </nav>
-    </div>
-    <?php
+      
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                <?php
+ $users = get_users( array( 'role__in' => array( 'member' ) ) );
 
-$current_user = wp_get_current_user();
-$user = new WP_User( $current_user ->ID);
-$project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
-
-// The Query
-$query = new WP_Query(array(
-    'post_type' => 'project',
-    'meta_query' => array(
-        array(
-            'key' => 'project_user',
-            'value' => $current_user->ID,
-        ),
-        array(
-            'key' => 'project_status_select',
-            'value' => 'Completed',
-        )
-        
-    )
-));
-query_posts( $query );
-
-// The Loop
-if($query->have_posts()):
-while ( $query->have_posts() ) : 
-    $query->the_post();  
-// your post content ( title, excerpt, thumb....)
-
-$project_start = get_post_meta(get_the_ID(), 'project_start', true);
-$project_end = get_post_meta(get_the_ID(), 'project_end', true);
-$project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
-
-$project_user_id = get_post_meta(get_the_ID(), 'project_user', true);
-
-endwhile;
-//Reset Query
-wp_reset_query();
-endif;
+ if ( isset( $_POST['activate_user'] ) && isset( $_POST['user_id'] ) ) {
+    $user_id = intval( $_POST['user_id'] );
+    update_user_meta( $user_id, 'registration_status', 'active' );
+    echo '<div class="alert alert-success" style="color:white; font-weight:bold;" >User activated successfully.</div>';
+}
 ?>
-<div class="container">
-    <div class="card">
-    <div class="m-5 card card-outline card-success">
-                        <div class="card-header">
-                            <div class="card-tools d-flex mb-2">
-                                
-                                <a class=" ms-auto btn btn-primary" href="../completed-projects"> Completed Projects</a>
-                            </div>
-                            <div class="alert alert-warning alert-dismissible text-center" <?php if ($project_status == 'In Progress' || $project_status == 'Completed'  || $project_status == '') { echo'style="display:none;"'; } ?> role="alert">
-                                <strong>Warning!</strong> Once a project has been accepted it cannot be retracted.
-                            </div>
-                            <div class="alert alert-info mb-2 alert-dismissible text-center" style="color:white;" <?php if ($project_status == 'Pending' || $project_status == 'Completed'  || $project_status == '') { echo'style="display:none;"'; } ?>  role="alert">
-                                <strong >Success!</strong> This Project has been marked to be In Progress
-                            </div>
-                            <div class="alert alert-success alert-dismissible text-center" <?php if ($project_status == 'In Progress' || $project_status == 'Pending'  || $project_status == '') { echo'style="display:none;"'; } ?>  role="alert">
-                                <strong>Congratulations!</strong> You have completed the project.
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-hover table-condensed" id="list">
-                                <colgroup>
-                                    <col width="5%">
-                                    <col width="10%">
-                                    <col width="25%">
-                                    <col width="15%">
-                                    <col width="15%">
-                                    <col width="10%">
-                                    <col width="10%">
-                                    <col width="10%">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">#</th>
-                                        <th>Project</th>
-                                        <th>Description</th>
-                                        <th>Project Started</th>
-                                        <th>Project Due Date</th>
-                                        <th>Project Status</th>
-                                        <th>React</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <?php
-                                // The Query
-                                $query = new WP_Query(array(
-                                    'post_type' => 'project',
-                                    'meta_query' => array(
-                                        array(
-                                            'key' => 'project_user',
-                                            'value' => $current_user->ID,
-                                        )
-                                    )
-                                ));
-                                query_posts( $query );
-
-                                // The Loop
-                                if($query->have_posts()):
-                                while ( $query->have_posts() ) : 
-                                    $query->the_post();  
-                                // your post content ( title, excerpt, thumb....)
-
-                                $project_start = get_post_meta(get_the_ID(), 'project_start', true);
-                                $project_end = get_post_meta(get_the_ID(), 'project_end', true);
-                                $project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
-
-                                $project_user_id = get_post_meta(get_the_ID(), 'project_user', true);
-
-                                $project_user = '';
-                                if ( $project_user_id ) {
-                                    $user_info = get_userdata( $project_user_id );
-                                    if ( $user_info ) {
-                                        $project_user = $user_info->display_name;
-                                    }
-                                }
-
-                                ?>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center"><p class="mt-2">1</p></td>
-                                        <td >
-                                            <p class="mt-2"><b><?php the_title();?></b></p>
-                                        </td>
-                                        <td>
-                                            <p class="mt-0 text-truncate"><?php the_content();?></b></p>
-                                        </td>
-
-                                        <td><p class="mt-2"><b><?php echo esc_attr( $project_start ) ;?></b></p></td>
-                                        <td><p class="mt-2"><b><?php echo esc_attr( $project_end ) ;?></b></p></td>
-                                        <td>
-                                            <p class="mt-2"><span class=''><?php echo esc_attr( $project_status ) ;?></span></p>                      
-                                        </td>
-
-                                        <td>
-                                            <div class="mt-2 d-flex gap-1" >
-                                                <form action="" method="post">
-                                                    <input type="hidden" name="meta-field" value="In Progress">
-                                                    <input type="hidden" name="post-id" value="<?php echo get_the_ID(); ?>">                      
-                                                    <button class="btn btn-primary"type="submit" name="accepted" <?php if ($project_status == 'In Progress' || $project_status == 'Completed') { echo'disabled'; } ?> >Accept</button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="mt-2 d-flex gap-1" >
-                                                <form action="" method="post">
-                                                    <input type="hidden" name="meta-field2" value="Completed">
-                                                    <input type="hidden" name="project-id" value="<?php echo get_the_ID(); ?>">
-                                                    <button class="btn btn-primary"type="submit" name="completed" <?php if ($project_status == 'Completed') { echo'disabled'; } ?>>Completed</button>
-                                                </form>
-                                            </div>                       
-                                        </td>
-                                    </tr>	
-                                    
-                                </tbody>
-                                <?php
-                                    endwhile;
-                                    //Reset Query
-                                    wp_reset_query();
-                                endif;
-                                ?>
-                            </table>
-    </div>
-</div>
 <?php
-?>
+ $users = get_users( array( 'role__in' => array( 'member' ) ) );
 
-    
+ if ( isset( $_POST['deactivate_user'] ) && isset( $_POST['user_id'] ) ) {
+    $user_id = intval( $_POST['user_id'] );
+    update_user_meta( $user_id, 'registration_status', 'inactive' );
+    echo '<div class="alert alert-danger" style="color:white; font-weight:bold;">User deactivated successfully.</div>';
+}
+?> 
+                    <h6 style="text-align:center;font-weight:bolder;">EMPLOYEES</h6>
+
+                  <form class="mr-3 position-relative">
+                              <div class="form-group mb-0">
+                                 <input type="search" class="form-control" id="exampleInputSearch" placeholder="Search" 
+                                    aria-controls="user-list-table">
+                              </div>
+                             
+                           </form>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                             <thead>
+                        <tr class="ligth">
+                           <th>Username</th>
+                           <th>Nickname</th>
+                           <th>Email</th>
+                            <th>Website</th>
+                           <th>Status</th>
+                           <th>Company</th>
+                           <th>Join Date</th>
+                           <th style="min-width: 100px">Action</th>
+                        </tr>
+                     </thead>
+                            <tbody>
+
+                <?php
+                $users = get_users( array( 'role__in' => array( 'developer','member' ) ) );
+                     foreach ( $users as $user ) {
+                        $username = $user->user_login;
+                        $display_name = $user->display_name;
+                        $email = $user->user_email;
+                        $user_register = $user->user_registered;
+                        
+                    ?>
+                        <tr>
+                           <td><?php echo '<span>' . esc_html( $username ) . '</span>';?></td>
+                           <td><?php echo '<span>' . esc_html( $display_name ) . '</span>';?></td>
+                           <td><?php echo '<span>' . esc_html( $email ) . '</span>';?></td>
+                           <td></td>
+                           <td><span <?php
+                        $user_register = $user->user_registered;
+                        $user_id = $user->ID;
+                        $registration_status = get_user_meta($user_id, 'registration_status', true);
+                        if ($registration_status == 'pending') {
+                            $user->set_role('member');
+                            echo 'class="badge bg-danger"';
+                        } ?>     <?php
+                              $registration_status = get_user_meta($user_id, 'registration_status', true);
+                              if ($registration_status == 'active') {
+                                update_user_meta($user_id, 'account_status', 'active');
+                                $user->set_role('developer'); 
+                                  echo 'class="badge text-bg-success"';
+                              } ?>     <?php
+                                    $registration_status = get_user_meta($user_id, 'registration_status', true);
+                                    if ($registration_status == 'Completed') {
+                                        echo 'class="badge text-bg-success"';
+                                    } ?>>
+                                    <?php
+                                    $registration_status = get_user_meta($user_id, 'registration_status', true);
+                                    if ($registration_status == 'inactive') {
+                                        update_user_meta($user_id, 'account_status', 'inactive');
+                                        $user->set_role('member');
+                                
+                                    } ?><?php
+                                    
+                                     $registration_status = get_user_meta($user_id, 'registration_status', true);
+                                     echo esc_html($registration_status); ?></span></td>
+
+                           <td>Ken Technologies</td>
+                           <td><?php echo '<span>' . esc_html( date( "d-m-Y", strtotime($user_register ) ) ) . '</span>';?></td>
+                           <td>
+                              <div class="flex align-items-center list-user-action">
+                                <form action="" method="post">
+                                    <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                                    <?php
+                                        if($registration_status == 'pending') {echo'<button class="btn btn-success"type="submit" name="activate_user">Activate</button>';}
+                                
+                                        elseif ($registration_status == 'active') {
+                                            echo'<button class="btn btn-danger"type="submit" name="deactivate_user">Deactivate</button>';
+                                        }
+                                        else{
+                                            echo'<button class="btn btn-success"type="submit" name="activate_user">Activate</button>';
+                                        }
+                                        
+                                    ?>
+                          
+
+                                </form>
+                                 
+                              </div>
+                           </td>
+                        </tr>
+                        <?php }?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
     
 </body>
