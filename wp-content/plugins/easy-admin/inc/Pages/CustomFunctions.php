@@ -93,7 +93,7 @@ class CustomFunctions{
     
     function my_non_logged_redirect()
     {
-        if ((is_page('dashboard') || is_page('projects')|| is_page('members') || is_page('user-profile')) && !is_user_logged_in() )
+        if ((is_page('dashboard') || is_page('projects')|| is_page('member') || is_page('user-profile')) && !is_user_logged_in() )
         {
             wp_redirect( home_url() );
             die();

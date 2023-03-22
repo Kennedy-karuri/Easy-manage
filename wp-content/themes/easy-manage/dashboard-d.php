@@ -72,7 +72,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/employees/">
+                    <a class="nav-link  " href="../manage/all-employees/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>credit-card</title>
@@ -92,7 +92,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/view-profile/">
+                    <a class="nav-link  " href="../manage/user-profile/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>credit-card</title>
@@ -134,10 +134,7 @@
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="Type here...">
-                        </div>
+                        
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">

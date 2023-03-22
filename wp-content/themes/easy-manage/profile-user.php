@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/projects">
+                    <a class="nav-link  " href="../manage/project-users/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>office</title>
@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/employees">
+                    <a class="nav-link  " href="../manage/all-employees/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>credit-card</title>
@@ -133,10 +133,7 @@
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="Type here...">
-                        </div>
+                       
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
@@ -161,163 +158,36 @@
         </nav>
     </div>
 
-    <section style="background-color: #eee;">
-  <div class="container py-5">
-    
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="card mb-4">
-          <div class="card-body text-center">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-              class="rounded-circle img-fluid" style="width: 150px;">
-            <h5 class="my-3">John Smith</h5>
-            <p class="text-muted mb-1">Full Stack Developer</p>
-            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-            <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-primary">Follow</button>
-              <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+    <div class="container py-5 ">
+    <div class="row d-flex justify-content-center align-items-center ">
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-black"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src=""
+                alt="Avatar" class="img-fluid my-5" style="width: 100px;" />
+              <h1> <?php global $current_user; wp_get_current_user(); echo ($current_user->user_login) ;?></h1>
             </div>
-          </div>
-        </div>
-        <div class="card mb-4 mb-lg-0">
-          <div class="card-body p-0">
-            <ul class="list-group list-group-flush rounded-3">
-              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fas fa-globe fa-lg text-warning"></i>
-                <p class="mb-0">https://Kennedy-karuri.com</p>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fab fa-github fa-lg" style="color: #333333;"></i>
-                <p class="mb-0">Kennedy-karuri</p>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
-                <p class="mb-0">@Ken.karuri</p>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-                <p class="mb-0">Ken.Karuri</p>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-                <p class="mb-0">Ken Karuri</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-8">
-        <div class="card mb-4">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Full Name</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">Johnatan Smith</p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Email</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">example@example.com</p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Phone</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">(097) 234-5678</p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Mobile</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">(098) 765-4321</p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Address</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-4 mb-md-0">
-              <div class="card-body">
-                <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
-                </p>
-                <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
-                    aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h2>USER INFO</h2>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h2>Email</h2>
+                    <p class="text-muted" style="font-weight:bold;"><?php global $current_user; wp_get_current_user(); echo ($current_user->user_email) ;?></p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h2>Phone</h2>
+                    <p class="text-muted" style="font-weight:bold;">123 456 789</p>
+                  </div>
                 </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                <div class="progress rounded mb-2" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-4 mb-md-0">
-              <div class="card-body">
-                <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
-                </p>
-                <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                <div class="progress rounded mb-2" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66"
-                    aria-valuemin="0" aria-valuemax="100"></div>
+               
+              
+                <div class="d-flex justify-content-start">
+                  <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
                 </div>
               </div>
             </div>
@@ -327,5 +197,6 @@
     </div>
   </div>
 </section>
+          
     
 </body>

@@ -124,10 +124,7 @@
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="Type here...">
-                        </div>
+                        
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
@@ -251,7 +248,14 @@ $user = new WP_User( $current_user ->ID);
                                                 <form action="" method="post">
                                                     <input type="hidden" name="meta-field" value="<?php echo get_post_meta(get_the_ID(), 'project_user', true); ?>">
                                                     <input type="hidden" name="post-id" value="<?php echo get_the_ID(); ?>">
-                                                    <button class="btn btn-primary"type="submit" name="delete_post">Del</button>
+                                                    <input type = 'hidden' name = 'post-id' value = '<?php 
+                                                            if ($project_status == 'Completed' ) {
+                                                            echo get_the_ID();;
+                                                            }else{
+                                                                echo $alert_message;
+                                                            }  ?>'>
+                                                            <button class = 'btn btn-danger'type = 'submit' name = 'delete_post'>Del</button>
+</form>
                                                 </form>
                                             </div>                       
                                         </td>

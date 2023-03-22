@@ -245,10 +245,10 @@ function profile_page_template($template) {
         $user = new WP_User( $current_user->ID);
 
         if(in_array('project_manager', $user->roles) || in_array('administrator', $user->roles)){
-            $new_template = locate_template( array( 'page-profile.php' ) );
+            $new_template = locate_template( array( 'view-profile.php' ) );
         }
         elseif(in_array('developer', $user->roles)){
-            $new_template = locate_template( array( 'page-profile-member.php' ) );
+            $new_template = locate_template( array( 'profile-user.php' ) );
         }else{
             $new_template = locate_template( array( 'landing-page.php' ) );
         }
@@ -306,3 +306,4 @@ function my_custom_login_error_message( $username, $password ) {
     $error->add( 'pending', __( 'Your account is pending approval. Please try again later.' ) );
     return $error;
 }
+

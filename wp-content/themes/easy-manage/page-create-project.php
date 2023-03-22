@@ -176,8 +176,9 @@ if (isset( $_POST['cpt_nonce_field'] ) && wp_verify_nonce( $_POST['cpt_nonce_fie
             ],
             [
                 'key'   => 'project_status_select',
-                'value' => array( 'Pending', 'In Progress' ),
+                'value' => array( 'Pending', 'In Progress', ),
                 'compare' => 'IN',
+                
             ],
         ),
     ) );
@@ -280,7 +281,7 @@ if (isset( $_POST['cpt_nonce_field'] ) && wp_verify_nonce( $_POST['cpt_nonce_fie
                 <div class="form-group mt-2 text-center">
                     <button class="btn btn-primary px-5" type="submit"><?php _e('Submit', 'mytextdomain') ?></button>
                     <input type='hidden' name='project' id='project' value='project' />
-                    <!-- <input class="btn btn-primary px-5" type="button" value="Submit" name="projectsubmit"> -->
+                   
                 </div>
                 <?php wp_nonce_field( 'cpt_nonce_action', 'cpt_nonce_field' ); ?>
             </form>

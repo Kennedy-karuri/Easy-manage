@@ -182,7 +182,7 @@
                         <div class="card">
                            <div class="card-header d-flex justify-content-between">
                               <div class="iq-header-title">
-                                 <h4 class="card-title" style="font-weight:bold;">UPDATE PFOFILE</h4>
+                                 <h4 class="card-title" style="font-weight:bold;">UPDATE PROFILE</h4>
                               </div>
                            </div>
                            <div class="card-body">

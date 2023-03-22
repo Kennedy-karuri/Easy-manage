@@ -1,6 +1,6 @@
 <?php 
 /**
- * Template Name: project-dev
+ * Template Name: completed-projects
  */
 ?>
 
@@ -17,53 +17,8 @@
     <link rel="stylesheet" href="./assets/css/theme.css">
    
 </head>
-<?php
 
-if (isset($_POST['accepted'])) {
-    $post_id = $_POST['post-id'];
-    $new_value = $_POST['meta-field'];
-    update_post_meta($post_id, 'project_status_select', $new_value);
-}
 
-if (isset($_POST['completed'])) {
-    $post_id = $_POST['project-id'];
-    $new_value = $_POST['meta-field2'];
-    update_post_meta($post_id, 'project_status_select', $new_value);
-}
-
-$current_user = wp_get_current_user();
-$user = new WP_User( $current_user ->ID);
-$project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
-
-// The Query
-$query = new WP_Query(array(
-    'post_type' => 'project',
-    'meta_query' => array(
-        array(
-            'key' => 'project_user',
-            'value' => $current_user->ID,
-        )
-    )
-));
-query_posts( $query );
-
-// The Loop
-if($query->have_posts()):
-while ( $query->have_posts() ) : 
-    $query->the_post();  
-// your post content ( title, excerpt, thumb....)
-
-$project_start = get_post_meta(get_the_ID(), 'project_start', true);
-$project_end = get_post_meta(get_the_ID(), 'project_end', true);
-$project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
-
-$project_user_id = get_post_meta(get_the_ID(), 'project_user', true);
-
-endwhile;
-//Reset Query
-wp_reset_query();
-endif;
-?>
 
 <body class="g-sidenav-show">
     <nav class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start position-absolute ms-3 bg-white" id="sidenav-main">
@@ -98,7 +53,7 @@ endif;
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="">
+                    <a class="nav-link  " href="../manage/project-users/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>office</title>
@@ -138,7 +93,7 @@ endif;
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/view-profile/">
+                    <a class="nav-link  " href="../manage/user-profile/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>credit-card</title>
@@ -162,22 +117,88 @@ endif;
         </div>
    
     </nav>
-
-    <div class="wrapper">
-    <div class="container">
-        <div class="row no-gutters height-self-center">
-            <div class="col-sm-12 text-center align-self-center">
-               <div class="iq-error position-relative">
-                     <img src="../assets/images/error/404.png" class="img-fluid iq-error-img" alt="">
-                     <h2 class="mb-0 mt-4">Sorry! This Page Was Not Found.</h2>
-                     <p>Requested page dose not exist.</p>
-                     <a class="btn btn-primary d-inline-flex align-items-center mt-3" href="#!"><i class="ri-home-4-line"></i>Home</a>
-               </div>
+    <div class="main-content" id="panel">
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 mt-3 shadow-none border-radius-xl bg-transparent" id="navbarTop">
+            <div class="container-fluid py-1 px-3">
+            <nav aria-label="breadcrumb">
+                <h2 class="my-2 text-center text-dark">
+                        <?php global $current_user; wp_get_current_user(); ?>
+                        <?php 
+                            if ( is_user_logged_in() ) { 
+                            echo 'Welcome ' . $current_user->user_login . "\n"; 
+                            } else { 
+                            wp_loginout(); 
+                            } 
+                        ?>
+                    </h2>
+                    
+                </nav>
+                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                       
+                    </div>
+                    <ul class="navbar-nav  justify-content-end">
+                        <li class="nav-item d-flex align-items-center">
+                            <?php
+            if (is_user_logged_in()) : 
+            ?>
+                <a role="button" class="btn btn-outline-primary" href=" <?php echo wp_logout_url(get_permalink()); ?>">Log Out</a>
+            <?php 
+            else : 
+            ?>
+                <a role="button" class="btn btn-outline-primary" href="<?php echo wp_login_url(get_permalink()); ?>">Log In</a>
+            <?php 
+            endif;
+        ?>
+                        </li>
+                
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-         </div>
-   </div>
-</div>
+        </nav>
+    </div>
+    <?php
 
+$current_user = wp_get_current_user();
+$user = new WP_User( $current_user ->ID);
+$project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
+
+// The Query
+$query = new WP_Query(array(
+    'post_type' => 'project',
+    'meta_query' => array(
+        array(
+            'key' => 'project_user',
+            'value' => $current_user->ID,
+        ),
+        array(
+            'key' => 'project_status_select',
+            'value' => 'Completed',
+        )
+        
+    )
+));
+query_posts( $query );
+
+// The Loop
+if($query->have_posts()):
+while ( $query->have_posts() ) : 
+    $query->the_post();  
+// your post content ( title, excerpt, thumb....)
+
+$project_start = get_post_meta(get_the_ID(), 'project_start', true);
+$project_end = get_post_meta(get_the_ID(), 'project_end', true);
+$project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
+
+$project_user_id = get_post_meta(get_the_ID(), 'project_user', true);
+
+endwhile;
+//Reset Query
+wp_reset_query();
+endif;
+?>
 <div class="container">
     <div class="card">
     <div class="m-5 card card-outline card-success">
@@ -299,6 +320,10 @@ endif;
                                 ?>
                             </table>
     </div>
-   </div>
-   
+</div>
+<?php
+?>
+
+    
+    
 </body>

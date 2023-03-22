@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/project">
+                    <a class="nav-link  " href="../manage/project-users/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>office</title>
@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/employees">
+                    <a class="nav-link  " href="../manage/all-employees/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>credit-card</title>
@@ -91,7 +91,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/view-profile/">
+                    <a class="nav-link  " href="../manage/user-profile/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>credit-card</title>
@@ -166,62 +166,60 @@
                 <div class="card-header pb-0">
                     <h6 style="text-align:center;font-weight:bolder;">EMPLOYEES</h6>
 
-                  <form class="mr-3 position-relative">
+                    <form class="mr-3 position-relative">
                               <div class="form-group mb-0">
                                  <input type="search" class="form-control" id="exampleInputSearch" placeholder="Search"
                                     aria-controls="user-list-table">
                               </div>
                            </form>
                 </div>
-
-      <table id="user-list-table" class="table table-striped dataTable mt-4" role="grid"
-                     aria-describedby="user-list-page-info">
-                     <thead>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                             <thead>
                         <tr class="ligth">
-                           <th>Profile</th>
-                           <th>Name</th>
-                           <th>Contact</th>
+                           <th>Username</th>
+                           <th>Nickname</th>
                            <th>Email</th>
-                           <th>Country</th>
+                            <th>Website</th>
                            <th>Status</th>
                            <th>Company</th>
                            <th>Join Date</th>
                            <th style="min-width: 100px">Action</th>
                         </tr>
                      </thead>
-                     <tbody>
+                            <tbody>
+
+                <?php
+                $users = get_users( array( 'role__in' => array( 'member' ) ) );
+                     foreach ( $users as $user ) {
+                        $user_id = $user->ID;
+                        $username = $user->user_login;
+                        $display_name = $user->display_name;
+                        $email = $user->user_email;
+                        $user_register = $user->user_registered;
+                        $registration_status = get_user_meta( $user_id, 'registration_status', true );
+                    ?>
                         <tr>
-                           <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                 src="../assets/images/user/01.jpg" alt="profile"></td>
-                           <td>Kennedy</td>
-                           <td>+254729429104</td>
-                           <td>kennkaruri99@gmail.com</td>
-                           <td>
-                            Kenya
-                           </td>
-                           <td><span class="badge bg-primary">Active</span></td>
-                           <td>Ken Technologies</td>
+                           <td><?php echo '<span>' . esc_html( $username ) . '</span>';?></td>
+                           <td><?php echo '<span>' . esc_html( $display_name ) . '</span>';?></td>
+                           <td><?php echo '<span>' . esc_html( $email ) . '</span>';?></td>
                            <td></td>
+                           <td><span <?php if ($registration_status == 'pending') { echo'class="badge bg-danger"'; } ?> <?php if ($registration_status == 'active') { echo'class="badge text-bg-success"'; } ?> <?php if ($registration_status == 'inactive') { echo'class="badge text-bg-primary"'; } ?> <?php if ($registration_status == 'Completed') { echo'class="badge text-bg-success"'; } ?>><?php echo esc_html( $registration_status);?></span></td>
+                           <td>Ken Technologies</td>
+                           <td><?php echo '<span>' . esc_html( date( "d-m-Y", strtotime($user_register ) ) ) . '</span>';?></td>
                            <td>
                               <div class="flex align-items-center list-user-action">
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Add" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Edit" href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Delete" href="#"><i class="ri-delete-bin-line mr-0"></i></a>
+                               <button>view</button>
+
+                                </form>
+                                 
                               </div>
                            </td>
                         </tr>
- 
-
-
-
-
-
-                        
-                     </tbody>
-                  </table>
+                        <?php }?>
+                            </tbody>
+                        </table>
       </div>
     </div>
     

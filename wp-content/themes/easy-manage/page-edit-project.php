@@ -1,6 +1,6 @@
 <?php 
 /**
- * Template Name: completed-projects
+ * Template Name: Edit Project
  */
 ?>
 
@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Easy-Manage</title>
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  
     <link rel="stylesheet" href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-icons.css">
     <link rel="stylesheet" href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-svg.css">
     <link rel="stylesheet" href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/soft-ui-dashboard.min.css?v=1.0.2">
@@ -17,8 +17,6 @@
     <link rel="stylesheet" href="./assets/css/theme.css">
    
 </head>
-
-
 
 <body class="g-sidenav-show">
     <nav class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start position-absolute ms-3 bg-white" id="sidenav-main">
@@ -33,7 +31,7 @@
         <div class="collapse navbar-collapse  w-auto" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link  active" href="dashboard">
+                    <a class="nav-link  active" href="javascript:;">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>shop </title>
@@ -53,7 +51,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/project-users/">
+                    <a class="nav-link  " href="../manage/projects1/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>office</title>
@@ -73,7 +71,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/all-employees/">
+                    <a class="nav-link  " href="../manage/employees/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>credit-card</title>
@@ -93,7 +91,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../manage/user-profile/">
+                    <a class="nav-link  " href="../manage/view-profile/">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>credit-card</title>
@@ -113,193 +111,134 @@
                     </a>
                 </li>
              
+             
             </ul>
         </div>
    
     </nav>
-    <div class="main-content" id="panel">
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 mt-3 shadow-none border-radius-xl bg-transparent" id="navbarTop">
-            <div class="container-fluid py-1 px-3">
-            <nav aria-label="breadcrumb">
-                <h2 class="my-2 text-center text-dark">
-                        <?php global $current_user; wp_get_current_user(); ?>
-                        <?php 
-                            if ( is_user_logged_in() ) { 
-                            echo 'Welcome ' . $current_user->user_login . "\n"; 
-                            } else { 
-                            wp_loginout(); 
-                            } 
-                        ?>
-                    </h2>
-                    
-                </nav>
-                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="Type here...">
-                        </div>
-                    </div>
-                    <ul class="navbar-nav  justify-content-end">
-                        <li class="nav-item d-flex align-items-center">
-                            <?php
-            if (is_user_logged_in()) : 
-            ?>
-                <a role="button" class="btn btn-outline-primary" href=" <?php echo wp_logout_url(get_permalink()); ?>">Log Out</a>
-            <?php 
-            else : 
-            ?>
-                <a role="button" class="btn btn-outline-primary" href="<?php echo wp_login_url(get_permalink()); ?>">Log In</a>
-            <?php 
-            endif;
-        ?>
-                        </li>
-                
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <?php
 
-$current_user = wp_get_current_user();
-$user = new WP_User( $current_user ->ID);
-$project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
-
-// The Query
-$query = new WP_Query(array(
-    'post_type' => 'project',
-    'meta_query' => array(
-        array(
-            'key' => 'project_user',
-            'value' => $current_user->ID,
-        ),
-        array(
-            'key' => 'project_status_select',
-            'value' => 'Completed',
-        )
-        
-    )
-));
-query_posts( $query );
-
-// The Loop
-if($query->have_posts()):
-while ( $query->have_posts() ) : 
-    $query->the_post();  
-// your post content ( title, excerpt, thumb....)
-
-$project_start = get_post_meta(get_the_ID(), 'project_start', true);
-$project_end = get_post_meta(get_the_ID(), 'project_end', true);
-$project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
-
-$project_user_id = get_post_meta(get_the_ID(), 'project_user', true);
-
-endwhile;
-//Reset Query
-wp_reset_query();
-endif;
-?>
 <div class="container">
     <div class="card">
-    <div class="m-5 card card-outline card-success">
-                        <div class="card-header">
-                            <div class="card-tools d-flex mb-2">
-                                <h5 class="text-center text-primary mt-2 flex-grow-1">Completed Projects</h5>
-                                <a class=" ms-auto btn btn-primary" href="../manage/project-users/"> Ongoing Projects</a>
-                            </div>
-                            <div class="alert alert-success alert-dismissible text-center" role="alert">
-                                <strong>Congratulations!</strong> You have completed these projects.
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-hover table-condensed" id="list">
-                                <colgroup>
-                                    <col width="5%">
-                                    <col width="10%">
-                                    <col width="25%">
-                                    <col width="15%">
-                                    <col width="15%">
-                                    <col width="10%">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">#</th>
-                                        <th>Project</th>
-                                        <th>Description</th>
-                                        <th>Project Started</th>
-                                        <th>Project Due Date</th>
-                                        <th>Project Status</th>
-                                    </tr>
-                                </thead>
-                                <?php
-                                // The Query
-                                $query = new WP_Query(array(
-                                    'post_type' => 'project',
-                                    'meta_query' => array(
-                                        array(
-                                            'key' => 'project_user',
-                                            'value' => $current_user->ID,
-                                        )
-                                    )
-                                ));
-                                query_posts( $query );
+    <?php
+if (isset($_GET['post_id'])) {
+    $post_id = intval($_GET['post_id']);
+    // The Query
+    $query = new WP_Query(array('post_type' => 'project', 'p' => $post_id));
+    // The Loop
+    if ($query->have_posts()):
+        while ($query->have_posts()) :
+            $query->the_post();
 
-                                // The Loop
-                                if($query->have_posts()):
-                                while ( $query->have_posts() ) : 
-                                    $query->the_post();  
-                                // your post content ( title, excerpt, thumb....)
+            // handle form submission
+            if (isset($_POST['update'])) {
+                // sanitize input data
+                $title = sanitize_text_field($_POST['title']);
+                $content = sanitize_textarea_field($_POST['content']);
+                $start_date = sanitize_text_field($_POST['start']);
+                $due_date = sanitize_text_field($_POST['deadline']);
+                $status = sanitize_text_field($_POST['status']);
+                $user_id = intval($_POST['user']);
 
-                                $project_start = get_post_meta(get_the_ID(), 'project_start', true);
-                                $project_end = get_post_meta(get_the_ID(), 'project_end', true);
-                                $project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
+                // update post data
+                $post_data = array(
+                    'ID' => get_the_ID(),
+                    'post_title' => $title,
+                    'post_content' => $content,
+                    'meta_input' => array(
+                        'project_start' => $start_date,
+                        'project_end' => $due_date,
+                        'project_status_select' => $status,
+                        'project_user' => $user_id
+                    )
+                );
+                wp_update_post($post_data);
 
-                                $project_user_id = get_post_meta(get_the_ID(), 'project_user', true);
+                // redirect to the updated post
+                wp_redirect(get_permalink());
+                exit;
+            }
 
-                                $project_user = '';
-                                if ( $project_user_id ) {
-                                    $user_info = get_userdata( $project_user_id );
-                                    if ( $user_info ) {
-                                        $project_user = $user_info->display_name;
-                                    }
-                                }
+            // get post data
+            $project_start = get_post_meta(get_the_ID(), 'project_start', true);
+            $project_end = get_post_meta(get_the_ID(), 'project_end', true);
+            $project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
+            $project_user_id = get_post_meta(get_the_ID(), 'project_user', true);
+            $project_user = '';
+            if ($project_user_id) {
+                $user_info = get_userdata($project_user_id);
+                if ($user_info) {
+                    $project_user = $user_info->display_name;
+                }
+            }
 
-                                ?>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center"><p class="mt-2">1</p></td>
-                                        <td >
-                                            <p class="mt-2"><b><?php the_title();?></b></p>
-                                        </td>
-                                        <td>
-                                            <p class="mt-0 text-truncate"><?php the_content();?></b></p>
-                                        </td>
+            // display edit form
+?>
+            <div class="container mt-5">
+                        <div class="row">
+                            <div class="col">
+                            <form class="form card shadow p-4 mb-5" action="" method="post">
 
-                                        <td><p class="mt-2"><b><?php echo esc_attr( $project_start ) ;?></b></p></td>
-                                        <td><p class="mt-2"><b><?php echo esc_attr( $project_end ) ;?></b></p></td>
-                                        <td>
-                                            <p class="mt-2"><span class=''><?php echo esc_attr( $project_status ) ;?></span></p>                      
-                                        </td>
+            <h3 class="text-center text-primary">Edit Project</h3>
+            <div class="form-group mt-2">
+                <label for="title"><?php _e('Enter the Project Title:', 'mytextdomain'); ?></label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Project Title" value="<?php echo esc_attr( $post->post_title ); ?>">
+            </div>
+            <div class="form-group mt-2">
+                <label for="content"><?php _e('Enter the Project Description:', 'mytextdomain'); ?></label>
+                <textarea rows="3" class="form-control" id="content" name="content" placeholder="Enter Project Description here"><?php echo esc_attr( $post->post_content ); ?></textarea>
+            </div>
+            <div class="form-group mt-2">
+                <label for="content">Start Date:</label>
+                <input type="date" class="form-control" id="start_date" name="start" placeholder="Enter Project Start Date here" value="<?php echo $project_start; ?>">
+            </div>
+            <div class="form-group mt-2">
+                <label for="content">Due Date:</label>
+                <input type="date" class="form-control" id="due_date" name="deadline" placeholder="Enter Project Deadline here" value="<?php echo $project_end; ?>">
+            </div>
+            <div class="form-group mt-2">
+                <select class="form-control" id="status" name="status">
+                    <option value="Pending" <?php selected( $project_status, 'Pending' ); ?>>Pending</option>
+                    <option value="In Progress" <?php selected( $project_status, 'In Progress' ); ?>>In Progress</option>
+                    <option value="Completed" <?php selected( $project_status, 'Completed' ); ?>>Completed</option>
+                </select>
+            </div>
+            <?php
+            // Get all users with the "User" role
+            $users = get_users( array(
+                'role'    => 'developer',
+                'orderby' => 'user_nicename',
+            ) );
+            $user_options = array();
+            foreach ( $users as $user ) {
+                $user_options[ $user->ID ] = $user->display_name;
+            }
+            ?>
+            <div class="form-group mt-2">
+                <select class="form-control" id="user" name="user">
+                    <option value="">Select Developer</option>
+                    <?php foreach ( $user_options as $user_id => $user_name ) : ?>
+                        <option value="<?php echo $user_id; ?>" <?php selected( $project_user_id, $user_id ); ?>><?php echo $user_name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group mt-2 text-center">
+                <button class="btn btn-primary px-5" type="submit"><?php _e('Update', 'mytextdomain') ?></button>
+               <input type='hidden' name='update' id='update' value='update' />
+                <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+                
+            </div>
+            </form>
 
-                                       
-                                    </tr>	
-                                    
-                                </tbody>
-                                <?php
-                                    endwhile;
-                                    //Reset Query
-                                    wp_reset_query();
-                                endif;
-                                ?>
-                            </table>
+            <?php
+            
+                    endwhile;
+                endif;
+            }
+            ?>
+  
     </div>
 </div>
-<?php
-?>
-
-    
-    
+    </div>
+   </div>
+   
 </body>

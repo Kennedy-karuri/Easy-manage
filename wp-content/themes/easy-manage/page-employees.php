@@ -18,25 +18,11 @@
    
 </head>
 
-
-<?php
- $users = get_users( array( 'role__in' => array( 'member' ) ) );
-
- if ( isset( $_POST['activate_user'] ) && isset( $_POST['user_id'] ) ) {
-    $user_id = intval( $_POST['user_id'] );
-    update_user_meta( $user_id, 'registration_status', 'active' );
-    echo '<div class="alert alert-success">User activated successfully.</div>';
-}
-?>
-<?php
- $users = get_users( array( 'role__in' => array( 'member' ) ) );
-
- if ( isset( $_POST['deactivate_user'] ) && isset( $_POST['user_id'] ) ) {
-    $user_id = intval( $_POST['user_id'] );
-    update_user_meta( $user_id, 'registration_status', 'inactive' );
-    echo '<div class="alert alert-danger">User deactivated successfully.</div>';
-}
-?>
+<div class="container">
+    <div class="card">
+    
+    </div>
+</div>
 
 <body class="g-sidenav-show">
     <nav class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start position-absolute ms-3 bg-white" id="sidenav-main">
@@ -149,14 +135,11 @@
                             } 
                         ?>
                     </h2>
-                    <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+                   
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="Type here...">
-                        </div>
+                       
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
@@ -182,13 +165,32 @@
       
             <div class="card mb-4">
                 <div class="card-header pb-0">
+                <?php
+ $users = get_users( array( 'role__in' => array( 'member' ) ) );
+
+ if ( isset( $_POST['activate_user'] ) && isset( $_POST['user_id'] ) ) {
+    $user_id = intval( $_POST['user_id'] );
+    update_user_meta( $user_id, 'registration_status', 'active' );
+    echo '<div class="alert alert-success" style="color:white; font-weight:bold;" >User activated successfully.</div>';
+}
+?>
+<?php
+ $users = get_users( array( 'role__in' => array( 'member' ) ) );
+
+ if ( isset( $_POST['deactivate_user'] ) && isset( $_POST['user_id'] ) ) {
+    $user_id = intval( $_POST['user_id'] );
+    update_user_meta( $user_id, 'registration_status', 'inactive' );
+    echo '<div class="alert alert-danger" style="color:white; font-weight:bold;">User deactivated successfully.</div>';
+}
+?> 
                     <h6 style="text-align:center;font-weight:bolder;">EMPLOYEES</h6>
 
                   <form class="mr-3 position-relative">
                               <div class="form-group mb-0">
-                                 <input type="search" class="form-control" id="exampleInputSearch" placeholder="Search"
+                                 <input type="search" class="form-control" id="exampleInputSearch" placeholder="Search" 
                                     aria-controls="user-list-table">
                               </div>
+                             
                            </form>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
@@ -209,6 +211,7 @@
                             <tbody>
 
                 <?php
+                $users = get_users( array( 'role__in' => array( 'member' ) ) );
                      foreach ( $users as $user ) {
                         $user_id = $user->ID;
                         $username = $user->user_login;
