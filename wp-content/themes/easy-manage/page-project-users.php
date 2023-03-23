@@ -161,6 +161,18 @@
     </div>
     <?php
 
+if (isset($_POST['accepted'])) {
+    $post_id = $_POST['post-id'];
+    $new_value = $_POST['meta-field'];
+    update_post_meta($post_id, 'project_status_select', $new_value);
+}
+
+if (isset($_POST['completed'])) {
+    $post_id = $_POST['project-id'];
+    $new_value = $_POST['meta-field2'];
+    update_post_meta($post_id, 'project_status_select', $new_value);
+}
+
 $current_user = wp_get_current_user();
 $user = new WP_User( $current_user ->ID);
 $project_status = get_post_meta(get_the_ID(), 'project_status_select', true);
@@ -305,7 +317,7 @@ endif;
                                                 <form action="" method="post">
                                                     <input type="hidden" name="meta-field2" value="Completed">
                                                     <input type="hidden" name="project-id" value="<?php echo get_the_ID(); ?>">
-                                                    <button class="btn btn-primary"type="submit" name="completed" <?php if ($project_status == 'Completed') { echo'disabled'; } ?>>Completed</button>
+                                                    <button class="btn btn-primary"type="submit" name="completed" <?php if ($project_status == 'Completed' || $project_status == 'Pending') { echo'disabled'; } ?>>Completed</button>
                                                 </form>
                                             </div>                       
                                         </td>
