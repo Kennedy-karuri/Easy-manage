@@ -158,12 +158,12 @@
             </div>
         </nav>
         <div class="container-fluid pt-3">
-            <div class="card p-3 mb-4">
+            <div class="card p-10 mb-5">
                 <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100" style="background-image: url(https://demos.creative-tim.com/soft-ui-dashboard/assets/img/ivancik.jpg);">
                     <span class="mask bg-gradient-dark"></span>
                     <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                        <h5 class="text-white font-weight-bolder mb-4 pt-2">Welcome to Easy-Manage</h5>
-                        <p class="text-white">Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
+                        <h1 class="text-white  mb-4 pt-2" style="text-align:center;font-size:xx-large; font-weight:bolder;">WELCOME TO EASY MANAGE</h1>
+                        <p class="text-white" style="text-align:center;font-size:xx-large;font-weight:bolder">Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
                        
                     </div>
                 </div>

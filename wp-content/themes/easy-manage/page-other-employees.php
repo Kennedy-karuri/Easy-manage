@@ -163,54 +163,56 @@
                 <div class="card-header pb-0">
                     <h6 style="text-align:center;font-weight:bolder;">EMPLOYEES</h6>
 
-                    <form class="mr-3 position-relative">
-                              <div class="form-group mb-0">
-                                 <input type="search" class="form-control" id="exampleInputSearch" placeholder="Search"
-                                    aria-controls="user-list-table">
-                              </div>
-                           </form>
-                </div>
-                <div class="card-body px-0 pt-0 pb-2">
-                    <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
-                             <thead>
-                        <tr class="ligth">
-                           <th>Username</th>
-                           <th>Nickname</th>
-                           <th>Email</th>
-                            <th>Website</th>
-                           <th>Status</th>
-                           <th>Company</th>
-                           <th>Join Date</th>
-                           
-                        </tr>
-                     </thead>
-                            <tbody>
+                    <form action="" method="GET">
+    <input type="text" name="search" placeholder="Search users..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+    <button type="submit" class="btn btn-primary" name="submit">Search</button>
+    
+</form>
 
+<?php
+     $args = array(
+        'order' => 'ASC',
+        'role' => 'developer',
+    ); 
+
+
+    if (isset($_GET['search'])) {
+        $search_text = $_GET['search'];
+        $args['search'] = '*'.$search_text.'*';
+    }
+    
+    $users = get_users($args);
+   
+    
+
+   
+        ?>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">User Name</th>
+                    <th scope="col">User Email</th>
+                    <th scope="col">User Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                foreach ($users as $user) { ?>
                 <?php
-                $users = get_users( array( 'role__in' => array( 'member','developer' ) ) );
-                     foreach ( $users as $user ) {
-                        $user_id = $user->ID;
-                        $username = $user->user_login;
-                        $display_name = $user->display_name;
-                        $email = $user->user_email;
-                        $user_register = $user->user_registered;
-                        $registration_status = get_user_meta( $user_id, 'registration_status', true );
+                 $registration_status = get_user_meta($user->ID, 'registration_status', true );
+                 if ($registration_status == 'active' ) {
                     ?>
-                        <tr>
-                           <td><?php echo '<span>' . esc_html( $username ) . '</span>';?></td>
-                           <td><?php echo '<span>' . esc_html( $display_name ) . '</span>';?></td>
-                           <td><?php echo '<span>' . esc_html( $email ) . '</span>';?></td>
-                           <td></td>
-                           <td><span <?php if ($registration_status == 'pending') { echo'class="badge bg-danger"'; } ?> <?php if ($registration_status == 'active') { echo'class="badge text-bg-success"'; } ?> <?php if ($registration_status == 'inactive') { echo'class="badge text-bg-primary"'; } ?> <?php if ($registration_status == 'Completed') { echo'class="badge text-bg-success"'; } ?>><?php echo esc_html( $registration_status);?></span></td>
-                           <td>Ken Technologies</td>
-                           <td><?php echo '<span>' . esc_html( date( "d-m-Y", strtotime($user_register ) ) ) . '</span>';?></td>
-                           
-                        </tr>
-                        <?php }?>
-                            </tbody>
-                        </table>
-      </div>
+                    <tr>
+                        
+                        <td><?php echo $user->display_name; ?></td>
+                        <td><?php echo $user->user_email; ?></td>
+                        <td><?php echo $user->registration_status; ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        <?php }?>
     </div>
     
    

@@ -219,8 +219,15 @@ if (isset( $_POST['cpt_nonce_field'] ) && wp_verify_nonce( $_POST['cpt_nonce_fie
         global $post;
         $post_id = $post->ID;
         $project_id = wp_insert_post( $new_project);
-        //add_post_meta($cpt_id,'project_start',$project_start);
+       
         if ($project_id) {
+              // Send email to the user
+              $user_email = get_userdata($developer_id)->user_email;
+              $subject = 'New project assigned to you';
+              $message = 'A new project has been assigned to you. Please log in to view the details.';
+            //   $headers = array('Content-Type: text/html; charset=UTF-8');
+              wp_mail($user_email, $subject, $message, );
+
             $alert_type = 'success';
             $alert_message = 'Project assigned successfully.';
         } else {

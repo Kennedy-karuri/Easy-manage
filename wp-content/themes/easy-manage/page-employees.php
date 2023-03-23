@@ -184,14 +184,9 @@
 }
 ?> 
                     <h6 style="text-align:center;font-weight:bolder;">EMPLOYEES</h6>
+                    
 
-                  <form class="mr-3 position-relative">
-                              <div class="form-group mb-0">
-                                 <input type="search" class="form-control" id="exampleInputSearch" placeholder="Search" 
-                                    aria-controls="user-list-table">
-                              </div>
-                             
-                           </form>
+                 
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
@@ -201,7 +196,7 @@
                            <th>Username</th>
                            <th>Nickname</th>
                            <th>Email</th>
-                            <th>Website</th>
+                       
                            <th>Status</th>
                            <th>Company</th>
                            <th>Join Date</th>
@@ -224,7 +219,7 @@
                            <td><?php echo '<span>' . esc_html( $username ) . '</span>';?></td>
                            <td><?php echo '<span>' . esc_html( $display_name ) . '</span>';?></td>
                            <td><?php echo '<span>' . esc_html( $email ) . '</span>';?></td>
-                           <td></td>
+                         
                            <td><span <?php if ($registration_status == 'pending') { echo'class="badge bg-danger"'; } ?> <?php if ($registration_status == 'active') { echo'class="badge text-bg-success"'; } ?> <?php if ($registration_status == 'inactive') { echo'class="badge text-bg-primary"'; } ?> <?php if ($registration_status == 'Completed') { echo'class="badge text-bg-success"'; } ?>><?php echo esc_html( $registration_status);?></span></td>
                            <td>Ken Technologies</td>
                            <td><?php echo '<span>' . esc_html( date( "d-m-Y", strtotime($user_register ) ) ) . '</span>';?></td>
