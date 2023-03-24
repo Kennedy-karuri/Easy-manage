@@ -190,7 +190,6 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    
                     <th scope="col">User Name</th>
                     <th scope="col">User Email</th>
                     <th scope="col">User Status</th>
@@ -209,10 +208,12 @@
                         <td><?php echo $user->user_email; ?></td>
                         <td><?php echo $user->registration_status; ?></td>
                     </tr>
-                <?php } ?>
+                <?php } 
+                }?>
+
             </tbody>
         </table>
-        <?php }?>
+       
     </div>
     
    

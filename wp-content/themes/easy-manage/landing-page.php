@@ -38,8 +38,8 @@
         </div>
     </div>
 
-    <div class="homepage-content" id="home" style="color:white;font-size:70px;">
-        <h1>ASSIGNING PROJECTS AND MANAGING TEAMS MADE EASIER</h1>
+    <div class="homepage-content" id="home" style="color:white;">
+        <h1 style="color:blue;">ASSIGNING PROJECTS AND MANAGING TEAMS MADE EASIER</h1>
         <div class="button">
         <a role="button" class="btn btn-outline-primary" href="../manage/sign-up/">GET STARTED</a>          
            
@@ -47,14 +47,14 @@
     </div>
 </div>
 
-<div class="second-page" id="about">
+<div class="second-page" id="about" style="background:rgb(183, 206, 211);">
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
      
         <h1 class="card-title" style="padding-top:30px">ABOUT-US</h1>
-        <p class="card-text" style="padding-top:30px;">Easy-Manage is a management application that helps project managers keep track of all their members and assign projects to their members.</p>
+        <p class="card-text" style="padding-top:30px;font-size:large;">Easy-Manage is a management application that helps project managers keep track of all their members and assign projects to their members.</p>
        
       </div>
     </div>
@@ -65,7 +65,7 @@
 </div>
 </div>
 <hr>
-<div class="third-page" id="services">
+<div class="third-page" id="services" style="background-color:rgb(183, 206, 211);">
         <div class="third-header">
             <h1>SERVICES</h1>
             <p>The following services are offered at Easy-Manage.</p>
@@ -74,7 +74,7 @@
  
  
         <div class="card" >
-    <img src="wp-content/themes/easy-manage/assets/img/manage.png" class="card-img-top" alt="" style="height: 200px;width: 200px; ">
+    <img src="wp-content/themes/easy-manage/assets/img/pm.png" class="card-img-top" alt="" style="height: 200px;width: 200px;padding:20px; ">
     <div class="card-body">
       <hr>
       <h5 class="card-title" style="font-weight:bold;">Project Management</h5>
@@ -84,14 +84,14 @@
   <div class="card">
   <img src="wp-content/themes/easy-manage/assets/img/manage.png" class="card-img-top" alt="" style="height: 200px;width: 200px; ">
     <div class="card-body">
-      <hr>
+    <hr>
       <h5 class="card-title" style="font-weight:bold;">Manage Users</h5>
       <p class="card-text">Manage users of tour system.You can view the whole of your workforce from our application.</p>
     </div>
   </div>
   <div class="card">
-  <img src="wp-content/themes/easy-manage/assets/img/manage.png" class="card-img-top" alt="" style="height: 200px;width: 200px; ">
-    <div class="card-body">
+  <img src="wp-content/themes/easy-manage/assets/img/ap.png" class="card-img-top" alt="" style="height: 200px;width: 200px;padding:20px ">
+    <div class="card-body"> 
       <hr>
       <h5 class="card-title" style="font-weight:bold;">Assign Projects</h5>
       <p class="card-text">Asssign projects to your different members.</p>
@@ -103,7 +103,7 @@
 
 <hr>
 
-    <div class="fourth-page" id="contact">
+    <div class="fourth-page" id="contact" style="background:rgb(183, 206, 211);">
 
     <div class="fourth-header">
             <h1>CONTACT US</h1>
@@ -169,7 +169,7 @@
      <!-- Footer -->
   <footer
           class="text-center text-lg-start text-white"
-          style="background:rgb(212, 199, 199);"
+          style="background:rgb(183, 206, 211);"
           >
           <br>
     <!-- Section: Social media -->
@@ -185,16 +185,16 @@
 
       <!-- Right -->
       <div>
-        <a href="" class="text-white me-4">
+        <a href="" class="text-black me-4">
           <img src="wp-content/themes/easy-manage/assets/img/linkedin.png" alt="linkedIn" style="height:50px;width:50px;">
         </a>
-        <a href="" class="text-white me-4">
+        <a href="" class="text-black me-4">
         <img src="wp-content/themes/easy-manage/assets/img/twitter.png" alt="twitter" style="height:50px;width:50px;">      
         </a>
-        <a href="" class="text-white me-4">
+        <a href="" class="text-black me-4">
         <img src="wp-content/themes/easy-manage/assets/img/facebook.png" alt="facebook" style="height:50px;width:50px;">      
         </a>
-        <a href="" class="text-white me-4">
+        <a href="" class="text-black me-4">
         <img src="wp-content/themes/easy-manage/assets/img/insta.png" alt="instagram" style="height:50px;width:50px;">       
        </a>
       
